@@ -1,0 +1,87 @@
+{
+	"suts": [{
+		"OS": "iOS",
+		"formFactor": "iPhone"
+	}],
+	"dev": {
+		"app": {
+			"name": "PowerChart Touch Dev",
+			"bundleId": "com.devcernerpowerchart.ambulatory"
+		},
+		"domain": "deveng",
+		"users": [{
+			"credential": ""
+		         }
+                 ],
+		"assertions": [{
+                        "okBtn": "OK",
+                        "locationHeader": "Location",
+                        "accessDeniedHeader": "Access Denied",
+                        "accessDeniedMsg": "You do not have access",
+			"listTxt": "List"
+			
+		}],
+		"persons": [{
+			"personID": ""
+		}]
+	},
+
+        "staging": {
+		"app": {
+			"name": "PowerChart Touch Staging",
+			"bundleId": "com.stagingcernerpowerchart.ambulatory"
+		},
+		"domain": "stgeng",
+		"users": [{
+			"credential": "650848" 
+                        },
+                        {
+                        "credential": "650863" 
+                        },
+                        {
+                        "credential": "650864" 
+                        },
+                        {
+                        "credential": "650850"
+		}],
+		"assertions": [{
+                        "okBtn": "OK",
+                        "locationHeader": "Location",
+                        "accessDeniedHeader": "Access Denied",
+                        "accessDeniedMsg": "You do not have access",
+			"listTxt": "List"
+		}],
+		"persons": [{
+			"personID": ""
+		}]
+	},
+        "sandbox": {
+		"app": {
+			"name": "PowerChart Touch Sandbox",
+			"bundleId": "com.sandboxcernerpowerchart.ambulatory"
+		},
+		"domain": "sndeng",
+		"users": [{
+			"credential": "652628" 
+                        },
+                        {
+                        "credential": "652640" 
+                        },
+                        {
+                        "credential": "652629" 
+                        },
+                        {
+                        "credential": "652641"
+		}],
+		"assertions": [{
+                        "okBtn": "OK",
+                        "locationHeader": "Location",
+                        "accessDeniedHeader": "Access Denied",
+                        "accessDeniedMsg": "You do not have access",
+			"listTxt": "List"
+		}],
+		"persons": [{
+			"personID": ""
+		}]
+	}
+}

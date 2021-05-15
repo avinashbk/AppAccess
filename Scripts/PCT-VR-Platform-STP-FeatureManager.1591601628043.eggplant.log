@@ -1,0 +1,35 @@
+2020-06-08 13:03:48.513 runscript[20648:13936] WARNING - unable to create shared user defaults!
+2020-06-08 13:03:48.527 runscript[20648:13936] NSDocumentClass EGGDocument not NSDocument subclass
+2020-06-08 13:03:49.926 runscript[20648:13936] Eggplant (Command Line) is 20.0.0-Windows-64, build (1912121710), on Windows 6.2 ICU version 62.1
+2020-06-08 13:03:51.405 runscript[20648:13936] RLM: Initialized. Local license folder: C:/Users/ab030405/Application Data/Eggplant
+2020-06-08 13:03:51.454 runscript[20648:13936] Approved License: <RLMLicense eggplantexecution #15072 Floating Expires 2020-09-28 00:00:00 +0530>
+Eggplant (20.0.0-1912121710) running in Execution mode on Windows-64 Host:0x005056afd7d2
+2020-06-08 13:03:54.309 runscript[20648:18068] Load C:\Program Files\Eggplant\Eggplant.app\Resources\ABBYY\Bin\FREngine.dll
+2020-06-08 13:03:54.331 runscript[20648:18068] Successfully loaded FREngine.dll
+2020-06-08 13:03:54.530 runscript[20648:13936] Error - Unable to Connect To WIN10T-00327.northamerica.cerner.net ((null))
+Connection Failed: Unable to connect to Server:WIN10T-00327.northamerica.cerner.net on port:3389
+Authentication failed
+2020-06-08 13:03:54.625 runscript[20648:20556] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script STARTED
+2020-06-08 13:03:54.683 runscript[20648:20556] Unable To Lock SuiteInfo file - Could not save EggplantCommon.suite.
+Error: 13
+If your file system does not support file locking please use:defaults write Eggplant SuiteLockingEnabled NO
+2020-06-08 13:03:54.729 runscript[20648:20556] Load Document Failed - Nothing at Location: C:/Eggplant Suite/ApplicationShared/OrionApplication-Shared.suite
+2020-06-08 13:03:54.729 runscript[20648:20556] Failed to load helper suite at C:/Eggplant Suite/ApplicationShared/OrionApplication-Shared.suite
+2020-06-08 13:03:54.730 runscript[20648:20556] Load Document Failed - Nothing at Location: C:/Eggplant Suite/DesktopShared/Desktop-Shared.suite
+2020-06-08 13:03:54.730 runscript[20648:20556] Failed to load helper suite at C:/Eggplant Suite/DesktopShared/Desktop-Shared.suite
+2020-06-08 13:03:54.730 runscript[20648:20556] Load Document Failed - Nothing at Location: C:/Eggplant Suite/OrionShared/Orion-Shared.suite
+2020-06-08 13:03:54.730 runscript[20648:20556] Failed to load helper suite at C:/Eggplant Suite/OrionShared/Orion-Shared.suite
+2020-06-08 13:03:54.730 runscript[20648:20556] Load Document Failed - Nothing at Location: C:/Eggplant Suite/OrionSharedComponents/OrionComponents-Shared.suite
+2020-06-08 13:03:54.730 runscript[20648:20556] Failed to load helper suite at C:/Eggplant Suite/OrionSharedComponents/OrionComponents-Shared.suite
+2020-06-08 13:03:54.731 runscript[20648:20556] Load Document Failed - Nothing at Location: C:/Eggplant Suite/AppAccess_FeatureManager/CernerCentralApps-Shared.suite
+2020-06-08 13:03:54.731 runscript[20648:20556] Failed to load helper suite at C:/Eggplant Suite/AppAccess_FeatureManager/CernerCentralApps-Shared.suite
+2020-06-08 13:03:54.732 runscript[20648:20556] File NSObject+GNUstepBase.m: 50. In -[NSObject(GNUstepBase) compare:] WARNING: The -compare: method for NSObject is deprecated.
+2020-06-08 13:03:54.785 runscript[20648:18068] OCR enabled-unlimited usage
+2020-06-08 13:03:54.980 runscript[20648:20556] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script ENDED
+2020-06-08 13:03:54.980 runscript[20648:13936] reported exception - <NSException: 0x15cfe030> NAME:Script Failed REASON:STUnknownMessage:
+ERROR: No Such Function: 'prepare' INFO:{CallStack = ("(Handler:\"pct_vr_platform_stp_featuremanager\", Line:\"9\", MeObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script\", MessageName:\"on_pct_vr_platform_stp_featuremanager\", MessageType:\"Command\", objectType:\"SenseTalkFrame\", RepeatIndex:\"0\", ScriptObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script\", TryDepth:\"0\")"); OtherButton = ""; ScriptError = "Runtime Error at line 9: STUnknownMessage - ERROR: No Such Function: 'prepare'"; }
+2020-06-08 13:03:56.587 runscript[20648:13936] Completed CernerCentralApps-Tests.suite - PCT-VR-Platform-STP-FeatureManager.script
+[13:03:54:338] [20648:000001fc] [INFO][com.freerdp.client.common.cmdline] - loading channelEx cliprdr
+[13:03:54:515] [20648:000001fc] [ERROR][com.freerdp.core] - freerdp_set_last_error ERRCONNECT_LOGON_FAILURE [0x00020014]
+[13:03:54:515] [20648:000001fc] [ERROR][com.freerdp.core.rdp] - rdp_recv_callback: CONNECTION_STATE_NLA - nla_recv_pdu() fail
+[13:03:54:515] [20648:000001fc] [ERROR][com.freerdp.core.transport] - transport_check_fds: transport->ReceiveCallback() - -1

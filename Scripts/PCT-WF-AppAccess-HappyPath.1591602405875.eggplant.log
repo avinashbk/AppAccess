@@ -1,0 +1,29 @@
+2020-06-08 13:16:47.181 runscript[16812:2736] WARNING - unable to create shared user defaults!
+2020-06-08 13:16:47.215 runscript[16812:2736] NSDocumentClass EGGDocument not NSDocument subclass
+2020-06-08 13:16:49.337 runscript[16812:2736] Eggplant (Command Line) is 20.0.0-Windows-64, build (1912121710), on Windows 6.2 ICU version 62.1
+2020-06-08 13:16:51.301 runscript[16812:2736] RLM: Initialized. Local license folder: C:/Users/ab030405/Application Data/Eggplant
+2020-06-08 13:16:51.349 runscript[16812:2736] Approved License: <RLMLicense eggplantexecution #15072 Floating Expires 2020-09-28 00:00:00 +0530>
+Eggplant (20.0.0-1912121710) running in Execution mode on Windows-64 Host:0x005056afd7d2
+2020-06-08 13:16:54.160 runscript[16812:20544] Load C:\Program Files\Eggplant\Eggplant.app\Resources\ABBYY\Bin\FREngine.dll
+2020-06-08 13:16:54.181 runscript[16812:20544] Successfully loaded FREngine.dll
+2020-06-08 13:16:54.554 runscript[16812:19452] Connection with WIN10T-00327.northamerica.cerner.net STARTED. TYPE: RDP
+2020-06-08 13:16:54.633 runscript[16812:17468] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script STARTED
+2020-06-08 13:16:54.667 runscript[16812:20544] OCR enabled-unlimited usage
+2020-06-08 13:16:54.731 runscript[16812:17468] Unable To Lock SuiteInfo file - Could not save EggplantCommon.suite.
+Error: 13
+If your file system does not support file locking please use:defaults write Eggplant SuiteLockingEnabled NO
+2020-06-08 13:16:54.892 runscript[16812:17468] Load Document Failed - Nothing at Location: C:/Users/ab030405/My Documents/IPDEV-Orion-Bandu/node_modules/ipdev-desktop-shared/Desktop-Shared.suite
+2020-06-08 13:16:54.892 runscript[16812:17468] Failed to load helper suite at ./IPDEV-Orion-Bandu/node_modules/ipdev-desktop-shared/Desktop-Shared.suite
+2020-06-08 13:16:54.893 runscript[16812:17468] Load Document Failed - Nothing at Location: C:/Users/ab030405/My Documents/IPDEV-Orion-Bandu/node_modules/ipdev-orion-shared/Orion-Shared.suite
+2020-06-08 13:16:54.893 runscript[16812:17468] Failed to load helper suite at ./IPDEV-Orion-Bandu/node_modules/ipdev-orion-shared/Orion-Shared.suite
+2020-06-08 13:16:54.951 runscript[16812:17468] File NSObject+GNUstepBase.m: 50. In -[NSObject(GNUstepBase) compare:] WARNING: The -compare: method for NSObject is deprecated.
+2020-06-08 13:16:55.724 runscript[16812:2736] There was a non-CA certificate in the trusted list: O=Entrust.net,OU=www.entrust.net/CPS_2048 incorp. by ref. (limits liab.),OU=(c) 1999 Entrust.net Limited,CN=Entrust.net Certification Authority (2048).
+2020-06-08 13:17:40.496 runscript[16812:17468] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script ENDED
+2020-06-08 13:17:40.496 runscript[16812:2736] reported exception - <NSException: 0x1be7cbe0> NAME:Script Failed REASON:SRUN_BadValue:
+Bad value for Object expression.  Looking for an object or script identifier, got 'BundleAdministration'. INFO:{CallStack = ("(Handler:\"pct_wf_appaccess_happypath\", Line:\"73\", MeObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script\", MessageName:\"on_pct_wf_appaccess_happypath\", MessageType:\"Command\", objectType:\"SenseTalkFrame\", RepeatIndex:\"0\", ScriptObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script\", TryDepth:\"0\")"); OtherButton = ""; ScriptError = "Runtime Error at line 73: SRUN_BadValue - Bad value for Object expression.  Looking for an object or script identifier, got 'BundleAdministration'."; }
+2020-06-08 13:17:41.596 runscript[16812:2736] Completed CernerCentralApps-Tests.suite - PCT-WF-AppAccess-HappyPath.script
+2020-06-08 13:17:41.874 runscript[16812:19452] Connection with WIN10T-00327.northamerica.cerner.net CLOSED. TYPE: RDP
+[13:16:54:189] [16812:00004bfc] [INFO][com.freerdp.client.common.cmdline] - loading channelEx cliprdr
+[13:16:54:378] [16812:00004bfc] [INFO][com.freerdp.core.nla] - TSCredentials: password
+[13:16:54:514] [16812:00004bfc] [INFO][com.freerdp.gdi] - Local framebuffer format  PIXEL_FORMAT_RGBA32
+[13:16:54:514] [16812:00004bfc] [INFO][com.freerdp.gdi] - Remote framebuffer format PIXEL_FORMAT_RGB16

@@ -1,0 +1,28 @@
+2020-06-08 13:19:41.855 runscript[17244:18292] WARNING - unable to create shared user defaults!
+2020-06-08 13:19:41.870 runscript[17244:18292] NSDocumentClass EGGDocument not NSDocument subclass
+2020-06-08 13:19:43.395 runscript[17244:18292] Eggplant (Command Line) is 20.0.0-Windows-64, build (1912121710), on Windows 6.2 ICU version 62.1
+2020-06-08 13:19:44.893 runscript[17244:18292] RLM: Initialized. Local license folder: C:/Users/ab030405/Application Data/Eggplant
+2020-06-08 13:19:44.940 runscript[17244:18292] Approved License: <RLMLicense eggplantexecution #15072 Floating Expires 2020-09-28 00:00:00 +0530>
+Eggplant (20.0.0-1912121710) running in Execution mode on Windows-64 Host:0x005056afd7d2
+2020-06-08 13:19:47.945 runscript[17244:2392] Load C:\Program Files\Eggplant\Eggplant.app\Resources\ABBYY\Bin\FREngine.dll
+2020-06-08 13:19:47.965 runscript[17244:2392] Successfully loaded FREngine.dll
+2020-06-08 13:19:48.323 runscript[17244:19512] Connection with WIN10T-00327.northamerica.cerner.net STARTED. TYPE: RDP
+2020-06-08 13:19:48.428 runscript[17244:11100] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script STARTED
+2020-06-08 13:19:48.497 runscript[17244:2392] OCR enabled-unlimited usage
+2020-06-08 13:19:48.512 runscript[17244:11100] Unable To Lock SuiteInfo file - Could not save EggplantCommon.suite.
+Error: 13
+If your file system does not support file locking please use:defaults write Eggplant SuiteLockingEnabled NO
+2020-06-08 13:19:48.609 runscript[17244:11100] Load Document Failed - Nothing at Location: C:/Users/ab030405/My Documents/IPDEV-Orion-Bandu/node_modules/ipdev-desktop-shared/Desktop-Shared.suite
+2020-06-08 13:19:48.609 runscript[17244:11100] Failed to load helper suite at ./IPDEV-Orion-Bandu/node_modules/ipdev-desktop-shared/Desktop-Shared.suite
+2020-06-08 13:19:48.610 runscript[17244:11100] Load Document Failed - Nothing at Location: C:/Users/ab030405/My Documents/IPDEV-Orion-Bandu/node_modules/ipdev-orion-shared/Orion-Shared.suite
+2020-06-08 13:19:48.610 runscript[17244:11100] Failed to load helper suite at ./IPDEV-Orion-Bandu/node_modules/ipdev-orion-shared/Orion-Shared.suite
+2020-06-08 13:19:48.635 runscript[17244:11100] File NSObject+GNUstepBase.m: 50. In -[NSObject(GNUstepBase) compare:] WARNING: The -compare: method for NSObject is deprecated.
+2020-06-08 13:20:56.276 runscript[17244:19512] Connection with WIN10T-00327.northamerica.cerner.net CLOSED. TYPE: RDP
+2020-06-08 13:20:56.632 runscript[17244:11100] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script ENDED
+2020-06-08 13:20:56.632 runscript[17244:18292] reported exception - <NSException: 0x24aa4140> NAME:Script Failed REASON:Image Not Found:
+waitfor Error - Unable To Find Any Image On Screen "(TEXT:"Sign in")" within 30.00 seconds. Text might be too low contrast to detect. INFO:Runtime Error at line 2: Image Not Found - waitfor Error - Unable To Find Any Image On Screen "(TEXT:"Sign in")" within 30.00 seconds. Text might be too low contrast to detect.
+2020-06-08 13:21:00.070 runscript[17244:18292] Completed CernerCentralApps-Tests.suite - PCT-VR-Platform-STP-FeatureManager.script
+[13:19:47:972] [17244:00004c38] [INFO][com.freerdp.client.common.cmdline] - loading channelEx cliprdr
+[13:19:48:137] [17244:00004c38] [INFO][com.freerdp.core.nla] - TSCredentials: password
+[13:19:48:279] [17244:00004c38] [INFO][com.freerdp.gdi] - Local framebuffer format  PIXEL_FORMAT_RGBA32
+[13:19:48:279] [17244:00004c38] [INFO][com.freerdp.gdi] - Remote framebuffer format PIXEL_FORMAT_RGB16

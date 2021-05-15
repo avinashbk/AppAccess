@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<testsuites>
+ <testsuite name="PCT-VR-Platform-STP-FeatureManager_script" package="CernerCentralApps-Tests.suite" timestamp="2020-06-08 13:19:48 +0530"
+ tests="1"  failures="2" errors="2" time="68.029000">
+  <properties>
+   <property name="RunDate" value="2020-06-08 13:19:48 +0530"/>
+   <property name="Status" value="Failure"/>
+  </properties>
+  <testcase name="PCT-VR-Platform-STP-FeatureManager.script" assertions="2" status="error"  time="67.958">
+    <failure type="LogError" message="Exception Call Stack information is ((Handler:&quot;pct_vr_platform_stp_featuremanager&quot;, Line:&quot;28&quot;, MeObjectID:&quot;C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script&quot;, MessageName:&quot;on_pct_vr_platform_stp_featuremanager&quot;, MessageType:&quot;Command&quot;, objectType:&quot;SenseTalkFrame&quot;, RepeatIndex:&quot;0&quot;, ScriptObjectID:&quot;C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script&quot;, TryDepth:&quot;1&quot;),(Handler:&quot;bandulogin&quot;, HandlerOffset:&quot;1102&quot;, Line:&quot;2&quot;, MeObjectID:&quot;C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script&quot;, MessageName:&quot;on_bandulogin&quot;, MessageType:&quot;Command&quot;, objectType:&quot;SenseTalkFrame&quot;, RepeatIndex:&quot;0&quot;, ScriptObjectID:&quot;C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script&quot;, TargetObjectID:&quot;C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script&quot;, TryDepth:&quot;0&quot;))" />
+    <failure type="FAILURE" message="Image Not Found waitfor Error - Unable To Find Any Image On Screen &quot;(TEXT:&quot;Sign in&quot;)&quot; within 30.00 seconds. Text might be too low contrast to detect. -- Execution Time 0:01:08 PCT-VR-Platform-STP-FeatureManager.script" />
+    <error type="Throw" message="Image Not Found - waitfor Error - Unable To Find Any Image On Screen &quot;(TEXT:&quot;Sign in&quot;)&quot; within 30.00 seconds. Text might be too low contrast to detect." />
+  </testcase>
+ </testsuite>
+</testsuites>

@@ -1,0 +1,61 @@
+{
+	"suts": [{
+		"name": "Windows-VM"
+	}],
+	"dev": { 
+		"domain": "deveng",
+		"testData": {
+			"bundleCreated": "Bundle successfully created",
+			"bundleUpdated": "Bundle successfully updated",
+			"positionName1": "AddPriv3",
+			"positionName2": "Automation-EUR4",
+			"positionUpdated": "Position access updated",
+			"positionDeleted": "Position delete successful",
+			"userUpdated": "User access updated",
+			"userRemoved": "User successfully removed",
+			"bundleName": "EggPlantBundle",
+			"applicationName": "Camera Capture",
+			"userName": "AB030405",
+			"userName1": "gt033193",
+			"helpPage": "Application Access Help"			
+		},
+		"users": [{
+			"userid": "gt033193",
+			"password": "cerner",
+			"userid1": "gt033193",
+			"password1": "cerner"
+		}],
+		"endpoint": "https://engineering.devcernercentral.com/application-access/tenants/pi2Au6O6r-41IDt-griqAFji_BB2UQv6",
+		"endpoint1": "https://devcernercentral.com/application-access/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b"
+
+	},
+
+	"staging": {
+		"domain": "stgeng",
+		"testData": {
+			"bundleCreated": "Bundle successfully created",
+			"bundleUpdated": "Bundle successfully updated",
+			"positionName1": "Automation-EUR2",
+			"positionName2": "Automation-EUR5",
+			"positionUpdated": "Position access updated",
+			"positionDeleted": "Position delete successful",
+			"userUpdated": "User access updated",
+			"userRemoved": "User successfully removed",
+			"bundleName": "EggPlantBundle",
+			"applicationName": "Camera Capture",
+			"userName": "AB030405",
+			"userName1": "GT033193",
+			"helpPage": "Application Access Help",
+			"realm":"deveng.temp_rho.cernerasp.com"
+		},
+		"users": [{
+			"userid": "gt033193",
+			"password": "g",
+			"userid1": "gt033193",
+			"password1": "g"
+		}],
+		"endpoint": "https://cerberus-admin.devcernerpowerchart.net/application-access/tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f",
+		"endpoint1": "https://devcernercentral.com/application-access/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b"
+	}
+}
+

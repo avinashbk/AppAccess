@@ -1,0 +1,47 @@
+{
+	"suts": [{
+		"name": "Windows-VM"
+	}],
+	"dev": {
+		"domain": "deveng",
+		"assertions": {
+			"bundleCreated": "Bundle successfully created",
+			"bundleUpdated": "Bundle successfully updated",
+			"positionName2": "Automation-EUR4",
+			"positionName1": "AddPriv3",
+			"positionUpdated": "Position access updated",
+			"userUpdated": "User access updated",
+			"navigationSearchText": "Search",
+			"bundleName": "Cloud9",
+			"applicationName": "cerner camera capture",
+			"userName": "SD068256",
+			"realm":"deveng.temp"
+		},
+		"users": [{
+			"tag": "appAccessUser",
+			"credential": "694071"
+		}],
+		"endpoint": "https://devcernercentral.com/application-access/tenants/pi2Au6O6r-41IDt-griqAFji_BB2UQv6/bundles"
+	},
+	"staging": {
+		"domain": "stgeng",
+		"assertions": {
+			"bundleCreated": "Bundle successfully created",
+			"bundleUpdated": "Bundle successfully updated",
+			"positionName2": "Automation-EUR4",
+			"positionName1": "Automation-EUR2",
+			"positionUpdated": "Position access updated",
+			"userUpdated": "User access updated",
+			"navigationSearchText": "Search",
+			"bundleName": "Cloud9",
+			"applicationName": "Camera Capture",
+			"userName": "SD068256",
+			"realm":"deveng.temp_rho.cernerasp.com"
+		},
+		"users": [{
+			"tag": "appAccessUser",
+			"credential": "694071"
+		}],
+		"endpoint": "https://cerberus-admin.devcernerpowerchart.net/application-access/tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f"
+	}
+}

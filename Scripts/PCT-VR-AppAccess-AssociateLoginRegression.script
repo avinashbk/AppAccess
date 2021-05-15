@@ -1,0 +1,77 @@
+﻿(** 
+	Test Case: PCT-VR-AppAccess-AssociateLoginRegression
+      RQM Test Case ID: 58
+**)
+
+// Optional Parameter, if defined will replace the defaults. Example for testArguments - "env:dev" would replace defaultEnvironment
+params testArguments
+
+//  Used if env is not passed in as a parameter
+set defaultEnvironment to "dev"
+set resourceFile to ResourcePath("PCT-VR-AppAccess-AssociateLoginRegression.json")
+set environment to ORNEnvironment.prepare(resourceFile, testArguments, defaultEnvironment)
+set searchArea to (0, .10, 1, .3)
+set searchHome to ORNScreen.scale(.75, .003, 1, .15) 
+
+// Retrieve Orion global variables such as maxWaitTime and remoteInterval 
+ORNGlobalSettings.apply
+set maxWaitTime to global maxWaitTime
+
+Try	
+	set testData to environment.assertions
+	set user to  environment.users
+	set urls to environment.url
+	
+	DSKUtilities.dismissRulesOfRoad
+	
+	log "Scenario01 - User is redirected to login page using URL_root. (no vanity domain or tenant id in URL) "
+	DskBrowser.launchChromeIncognitoMaxURL(environment.url.appaccess)
+	BanduUtil.banduLogin user.userName, user.password
+	assert that ImageFound(maxWaitTime,text:testData.accessForbiddenTxt, SearchRectangle: searchArea)
+	CaptureScreen "Scenario01_Access_Forbidden_Msg"
+	
+	log "Scenario02 - Click Logout from page and Verifying that User is logged out"
+	assert that ImageFound(maxWaitTime,text:"Log Out", IgnoreNewlines:yes,TextDifference:1,EnableAggressiveTextExtraction:True,DPI:200,IgnoreSpaces:True)
+	Click Text:"Log Out",IgnoreNewlines:yes,TextDifference:1,EnableAggressiveTextExtraction:True,DPI:200,IgnoreSpaces:True  
+	CaptureScreen "Scenario02_User_Has_Been_Logged_Out_Msg"
+	
+	log "Scenario03 - User is redirected  to Log in dialogue associated to tenant vanity domain without being logged in using URL_Tenant_Match_Vanity"
+	DSKBrowser.selectAddressandEnterURL(urls.userlogin)
+	typetext escapeKey
+	Click (text:testData.northAmericaLinkTxt, SearchRectangle: searchArea,CaseSensitive:"True", DPI:"200",  IgnoreSpaces:"True")
+	assert that ImageFound(maxWaitTime,text:"Log In", SearchRectangle: searchArea) 
+	CaptureScreen "Scenario03_Login_Dialogue_Associated_To_Tenant_Vanity_Domain_Displayed"
+	
+	log "Scenario04A - User redirect to login page using URL_Associate_No_Tenant_id (Non-specific user as user is not logged in.) "
+	DSKBrowser.selectAddressandEnterURL(urls.associatelogin)
+	typetext escapeKey 
+	assert that ImageFound(maxWaitTime,text:testData.associateLogIn, SearchRectangle: searchArea) 
+	CaptureScreen "Scenario04A_Associate_LogIn-Page_Displayed"
+	
+	log "Scenario04B - For 3rd party IDP"
+	DSKBrowser.selectAddressandEnterURL(urls.mocklogin)
+	typetext escapeKey 
+	assert that ImageFound(maxWaitTime,text:testData.realmId, SearchRectangle: searchArea) 
+	CaptureScreen "Scenario04B_Login_Dialogue_For_Mock-IDP"
+	
+	log "Scenario05 - login with non-associate in URL_Vanity_Bogus_Domain and verify 404 error is displayed"
+	DSKBrowser.selectAddressandEnterURL(urls.boguslogin)
+	assert that ImageFound(maxWaitTime,text:testData.errorMessagePage, SearchRectangle: searchArea)
+	CaptureScreen "Scenario05_404_Unknown_Enterprise_Identifier_Msg"
+	
+	log "Scenario06 - A non-associate logged who is an Admin (User1_Client_Admin_Vanity ) attempting to access URL_Tenant_Match_Vanity"
+	DSKBrowser.selectAddressandEnterURL(urls.nonassociatelogin)
+	OSCLogin.millenniumPlusLogin user.vanityUsername, user.vanityPassword 
+	assert that ImageFound(maxWaitTime,text:testData.applicationAccess, SearchRectangle: searchArea, case:"True", DPI:"200", ignoreSpaces:"True")
+	CaptureScreen "Scenario06_User_Redirected_To_Login_Page"
+	
+	log " Scenario07 - A logged in non-associate Admin, User1_Client_Admin, attempts to access a tenant using a root URL, URL_Tenant_ Match_id, for tenant that contains a tenant id which the user is an admin"
+	DskBrowser.openTabURLInChrome(urls.nonassociatelogin)
+	assert that ImageFound(maxWaitTime,text:testData.applicationAccess, SearchRectangle: searchArea, case:"True", DPI:"200", ignoreSpaces:"True")
+	CaptureScreen "Scenario07_User_Redirects_To_Home_Page"
+	
+	// End of Test
+	ORNEnvironment.cleanup environment
+Catch exception				
+	ORNEnvironment.handleException environment, exception	
+end try	

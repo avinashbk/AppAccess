@@ -1,0 +1,60 @@
+{
+	"suts": [{
+		"name": "Windows-VM"
+
+	}],
+	"dev": {
+		"domain": "deveng",
+		"assertions": {
+
+			"northAmericaLinkTxt": "1201eng.northamerica.cerner.net",
+			"accessForbiddenTxt":"Access Forbidden",
+			"associateLogIn":"Associate Log In",
+			"realmId":"Realm ID",
+			"errorMessagePage":"Unknown Enterprise Identifier",
+			"applicationAccess":"Application Access"
+		},
+		"url": {
+			"appaccess": "https://associates.devcernercentral.com/application-access/tenants ",
+			"userlogin": "https://engineering.devcernercentral.com/login",
+			"associatelogin": "https://associates.devcernercentral.com/application-access",
+			"mocklogin": "https://mock.devcernercentral.com/application-access",
+			"boguslogin": "https://bogus.devcernercentral.com/application-access",
+			"nonassociatelogin": "https://engineering.devcernercentral.com/application-access/tenants/pi2Au6O6r-41IDt-griqAFji_BB2UQv6"
+		},
+		"users": [{
+			"userName": "sk067492",
+			"password": " ",
+			"vanityUsername": "ch042504",
+			"vanityPassword": " "
+		}]
+	},
+
+	"staging": {
+		"domain": "stgeng",
+		"assertions": {
+			"northAmericaLinkTxt": "1201eng.northamerica.cerner.net",
+			"accessForbiddenTxt":"Access Forbidden",
+			"associateLogIn":"Associate Log In",
+			"realmId":"Realm ID",
+			"errorMessagePage":"Unknown Enterprise Identifier",
+			"applicationAccess":"Application Access"
+		},
+		"url": {
+			"appaccess": "https://associates.devcernercentral.com/application-access/tenants ",
+			"userlogin": "https://engineering.devcernercentral.com/login",
+			"associatelogin": "https://associates.devcernercentral.com/application-access",
+
+			"mocklogin": "https://mock.devcernercentral.com/application-access",
+			"boguslogin": "https://bogus.devcernercentral.com/application-access",
+			"nonassociatelogin": "https://engineering.devcernercentral.com/application-access/tenants/pi2Au6O6r-41IDt-griqAFji_BB2UQv6"
+		},
+		"users": [{
+			"userName": "sk067492",
+			"password": " ",
+			"vanityUsername": "ch042504",
+			"vanityPassword": " "
+		}]
+	}
+}
+

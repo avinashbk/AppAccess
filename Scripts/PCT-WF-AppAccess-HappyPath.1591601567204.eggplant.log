@@ -1,0 +1,38 @@
+2020-06-08 13:02:49.216 runscript[18192:9896] WARNING - unable to create shared user defaults!
+2020-06-08 13:02:49.308 runscript[18192:9896] NSDocumentClass EGGDocument not NSDocument subclass
+2020-06-08 13:02:51.598 runscript[18192:9896] Eggplant (Command Line) is 20.0.0-Windows-64, build (1912121710), on Windows 6.2 ICU version 62.1
+2020-06-08 13:02:53.932 runscript[18192:9896] RLM: Initialized. Local license folder: C:/Users/ab030405/Application Data/Eggplant
+2020-06-08 13:02:53.994 runscript[18192:9896] Approved License: <RLMLicense eggplantexecution #15072 Floating Expires 2020-09-28 00:00:00 +0530>
+Eggplant (20.0.0-1912121710) running in Execution mode on Windows-64 Host:0x005056afd7d2
+2020-06-08 13:02:57.351 runscript[18192:18656] Load C:\Program Files\Eggplant\Eggplant.app\Resources\ABBYY\Bin\FREngine.dll
+2020-06-08 13:02:57.511 runscript[18192:18656] Successfully loaded FREngine.dll
+2020-06-08 13:02:57.907 runscript[18192:9896] Error - Unable to Connect To WIN10T-00327.northamerica.cerner.net ((null))
+Connection Failed: Unable to connect to Server:WIN10T-00327.northamerica.cerner.net on port:3389
+Authentication failed
+2020-06-08 13:02:58.086 runscript[18192:18188] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script STARTED
+2020-06-08 13:02:58.201 runscript[18192:18188] Unable To Lock SuiteInfo file - Could not save EggplantCommon.suite.
+Error: 13
+If your file system does not support file locking please use:defaults write Eggplant SuiteLockingEnabled NO
+2020-06-08 13:02:58.279 runscript[18192:18188] Load Document Failed - Nothing at Location: C:/Eggplant Suite/ApplicationShared/OrionApplication-Shared.suite
+2020-06-08 13:02:58.279 runscript[18192:18188] Failed to load helper suite at C:/Eggplant Suite/ApplicationShared/OrionApplication-Shared.suite
+2020-06-08 13:02:58.279 runscript[18192:18188] Load Document Failed - Nothing at Location: C:/Eggplant Suite/DesktopShared/Desktop-Shared.suite
+2020-06-08 13:02:58.279 runscript[18192:18188] Failed to load helper suite at C:/Eggplant Suite/DesktopShared/Desktop-Shared.suite
+2020-06-08 13:02:58.279 runscript[18192:18188] Load Document Failed - Nothing at Location: C:/Eggplant Suite/OrionShared/Orion-Shared.suite
+2020-06-08 13:02:58.279 runscript[18192:18188] Failed to load helper suite at C:/Eggplant Suite/OrionShared/Orion-Shared.suite
+2020-06-08 13:02:58.280 runscript[18192:18188] Load Document Failed - Nothing at Location: C:/Eggplant Suite/OrionSharedComponents/OrionComponents-Shared.suite
+2020-06-08 13:02:58.280 runscript[18192:18188] Failed to load helper suite at C:/Eggplant Suite/OrionSharedComponents/OrionComponents-Shared.suite
+2020-06-08 13:02:58.280 runscript[18192:18188] Load Document Failed - Nothing at Location: C:/Eggplant Suite/AppAccess_FeatureManager/CernerCentralApps-Shared.suite
+2020-06-08 13:02:58.280 runscript[18192:18188] Failed to load helper suite at C:/Eggplant Suite/AppAccess_FeatureManager/CernerCentralApps-Shared.suite
+2020-06-08 13:02:58.282 runscript[18192:18188] File NSObject+GNUstepBase.m: 50. In -[NSObject(GNUstepBase) compare:] WARNING: The -compare: method for NSObject is deprecated.
+2020-06-08 13:02:58.286 runscript[18192:18656] OCR enabled-unlimited usage
+2020-06-08 13:02:58.519 runscript[18192:18188] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script ENDED
+2020-06-08 13:02:58.520 runscript[18192:9896] reported exception - <NSException: 0x12998a70> NAME:Script Failed REASON:STUnknownMessage:
+ERROR: No Such Function: 'prepare' INFO:{CallStack = ("(Handler:\"pct_wf_appaccess_happypath\", Line:\"10\", MeObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script\", MessageName:\"on_pct_wf_appaccess_happypath\", MessageType:\"Command\", objectType:\"SenseTalkFrame\", RepeatIndex:\"0\", ScriptObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-WF-AppAccess-HappyPath.script\", TryDepth:\"0\")"); OtherButton = ""; ScriptError = "Runtime Error at line 10: STUnknownMessage - ERROR: No Such Function: 'prepare'"; }
+2020-06-08 13:03:04.020 runscript[18192:9896] Completed CernerCentralApps-Tests.suite - PCT-WF-AppAccess-HappyPath.script
+[13:02:57:561] [18192:00004988] [INFO][com.freerdp.client.common.cmdline] - loading channelEx cliprdr
+[13:02:57:638] [18192:00004988] [INFO][com.freerdp.crypto] - creating directory C:\Users\ab030405\AppData\Roaming\freerdp
+[13:02:57:641] [18192:00004988] [INFO][com.freerdp.crypto] - creating directory [C:\Users\ab030405\AppData\Roaming\freerdp\certs]
+[13:02:57:643] [18192:00004988] [INFO][com.freerdp.crypto] - created directory [C:\Users\ab030405\AppData\Roaming\freerdp\server]
+[13:02:57:889] [18192:00004988] [ERROR][com.freerdp.core] - freerdp_set_last_error ERRCONNECT_LOGON_FAILURE [0x00020014]
+[13:02:57:889] [18192:00004988] [ERROR][com.freerdp.core.rdp] - rdp_recv_callback: CONNECTION_STATE_NLA - nla_recv_pdu() fail
+[13:02:57:889] [18192:00004988] [ERROR][com.freerdp.core.transport] - transport_check_fds: transport->ReceiveCallback() - -1

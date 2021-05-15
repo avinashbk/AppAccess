@@ -1,0 +1,108 @@
+{  
+   "suts":[  
+      {  
+         "OS":"Windows-VM",
+         "formFactor":"desktop"
+      }
+   ],
+   "dev":{  
+      "domain":"deveng",
+      "assertions":{
+         "accessForbidden": "Access Forbidden",
+         "realm1": "Engineering",
+         "realm2": "Associates",
+         "realm_error": "Please select a realm and try again",
+         "realm_id": "associates.devcerner.com",
+         "envDtlHeader":"Environment Details",
+         "featureHeader":"Feature Administration",
+         "posSuccessMsg":"The assigned positions were updated successfully",
+         "usrSuccessMsg":"The user was successfully assigned",
+         "usrRemovedMsg":"The user was successfully removed",
+         "enableAllMsg":"Are you sure you want to enable this feature for all positions and users?",
+         "enbleAllSuccessMsg":"All positions and users have been assigned",
+         "dsblAllMsg":"Do you want to revert to the previous manual settings or disable for all",
+         "rvrtSuccessMsg":"Previous configuration restored successfully",
+         "dsblSuccessMsg":"No positions or users are currently assigned",
+         "usrID":"ch042504",
+         "usrFullName":"Chidanand Hiremath",
+         "noUsrAssignedMsg":"No users are assigned",
+         "feature":"careaware_connect/disable_enterprise_hyperlinks",
+         "feature_name": "enterprise_hyperlinks",
+         "position":"admin",
+         "nonMillUser":"vd041096",
+         "mockFeature":"TestingSTP",
+         "realmID":"mock-idp",
+         "noUserMsg":"No users are currently assigned",
+         "allUserAssigned":"All users have been assigned",
+         "featureDetails":[  
+            "Release Notes",
+            "Reference Pages",
+            "Available Date",
+            "Activation Date",
+            "Build Required",
+            "Packages Required",
+            "Description"
+         ]
+      },
+      "users":[  
+         {
+            "userid1":"",
+            "password1":"",
+            "userid2":"",
+            "password2":""
+         }
+      ],
+      "endpoint":"https://devcernercentral.com/features/tenants/OxAC2Z9IxAi5XQoy3ORuV-lTk7VOlWFx",
+      "endpoint1":"https://mock.devcernercentral.com/features/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b"
+   },
+   "staging":{  
+      "domain":"stgeng",
+      "assertions":{
+         "accessForbidden": "Access Forbidden",
+         "realm1": "Engineering",
+         "realm2": "Associates",
+         "realm_error": "Please select a realm and try again",
+         "realm_id": "associates.devcerner.com",
+         "envDtlHeader":"Environment Details",
+         "featureHeader":"Feature Administration",
+         "posSuccessMsg":"The assigned positions were updated successfully",
+         "usrSuccessMsg":"The user was successfully assigned",
+         "usrRemovedMsg":"The user was successfully removed",
+         "enableAllMsg":"Are you sure you want to enable this feature for all positions and users?",
+         "enbleAllSuccessMsg":"All positions and users have been assigned",
+         "dsblAllMsg":"Do you want to revert to the previous manual settings or disable for all",
+         "rvrtSuccessMsg":"Previous configuration restored successfully",
+         "dsblSuccessMsg":"No positions or users are currently assigned",
+         "usrID":"ch042504",
+         "usrFullName":"Chidanand Hiremath",
+         "noUsrAssignedMsg":"No users are assigned",
+         "feature":"careaware_connect/disable_enterprise_hyperlinks",
+         "feature_name": "enterprise_hyperlinks",
+         "position":"admin",
+         "mockFeature":"TestingSTP",
+         "nonMillUser":"vd041096",
+         "realmID":"mock-idp",
+         "noUserMsg":"No users are currently assigned",
+         "allUserAssigned":"All users have been assigned",
+         "featureDetails":[  
+            "Release Notes",
+            "Reference Pages",
+            "Available Date",
+            "Activation Date",
+            "Build Required",
+            "Packages Required",
+            "Description"
+         ]
+      },
+      "users":[  
+          {
+              "userid1":"",
+              "password1":"",
+              "userid2":"",
+              "password2":""
+          }
+      ],
+      "endpoint":"https://sandboxcernercentral.com/application-access/tenants/a758f80e-aa74-4118-80aa-98cc75846c76/",
+      "endpoint1":"https://sandboxcernercentral.com/application-access/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b/"
+   }
+}

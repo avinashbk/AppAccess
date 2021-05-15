@@ -1,0 +1,180 @@
+﻿(**
+PCT-VR-Platform-FeatureManager (RQM ID:73)
+**)
+
+params testArguments
+
+set defaultEnvironment to "staging"
+set resourceFile to ResourcePath("PCT-VR-Platform-FeatureManager.json")
+set environment to ORNEnvironment.prepare(resourceFile, testArguments, defaultEnvironment)
+ORNGlobalSettings.apply
+set maxWaitTime to global maxWaitTime
+try		
+	set featureManagerURL to environment.endpoint
+	set nonMillTenantURL to environment.endpoint1
+	set user to item 1 of environment.users
+	set userName to environment.assertions.userName
+	set testData to environment.assertions
+	
+	DSKUtilities.dismissRulesOfRoad
+	DSKBrowser.launchChromeIncognitoMaxURL featureManagerURL
+	
+	// Open chrome in incognito and enter harness url (For staging url login functionality is disbaled), "FeatureManager/Icon_Close_Notification/Icon_Close_Notification_Win10", 
+	//OSCLogin.millenniumPlusLogin  user.userid, user.password 
+	
+	Log "Scenario 1: Verify Environment Details page displays"
+	assert that ImageFound (maxWaitTime,text: testData.envDtlHeader) 
+	CaptureScreen "Scenario01_Environment_Details_Page"
+	Log "Audit Event Key FEATURE_MANAGER_AUTHORIZE_ACCESS generated."
+	
+	Log "Scenario 2: Navigate to Features tab and verify Feature Administration Page displays"
+	Click "FeatureManager/Icon_Features"
+	assert that ImageFound (maxWaitTime,text:testData.featureHeader) 
+	CaptureScreen "Scenario02_Feature_Adminstration_Page"
+	
+	Log "Scenario 3a: Search the feature from the filter"
+	FeaturesUtil.searchFeature testData.feature
+	set selectFeature to ORNScreen.scale (0, 0.30, 1, .40)
+	assert that ImageFound(text:testData.feature,SearchRectangle:selectFeature) 
+	CaptureScreen "Scenario3a_Search_Feature"
+	
+	Log "Scenario 3b: Select the feature and verify feature details page is displayed"
+	Click Imagelocation(text:testData.feature, searchRectangle:selectFeature)
+	Repeat with each item of testData.featureDetails
+		assert imageFound(maxWaitTime,text:it, SearchRectangle:ORNScreen.leftHalf) 
+	End repeat
+	CaptureScreen "Scenario3b_Feature_Details_Page"
+	
+	Log "Secnario 4: Add position and verify postions is displayed in the table"
+	click "FeatureManager/Button_Modify"
+	click "FeatureManager/Icon_FilterPostions"
+	TypeText testData.position
+	if ImageFound(imageName:"FeatureManager/Button_Input", waitFor:4)
+		click FoundImageLocation()
+	else
+		exception "Positions not loaded","Positions not loaded"	
+	end if
+	Click Imagelocation(imageName:"FeatureManager/Button_Save",SearchRectangle:(0, 0.70, 1, .85))
+	assert that ImageFound (maxWaitTime,text: testData.posSuccessMsg)
+	CaptureScreen "Scenario04_Assigned_Position"
+	Log "Audit Event Key FEATURE_MANAGER_FEATURE_POSITIONS_MODIFY generated."
+	FeaturesUtil.closeNotification
+	
+	Log "Scenario 5a: Assign user to the feature and verify users is displayed in table"
+	set assignedUser to ORNScreen.scale (0, 0.70, 1, .93)
+	FeaturesUtil.addUserWithRealm testData.usrID, testData.realmid
+	assert that ImageFound (maxWaitTime,text: testData.usrSuccessMsg)
+	FeaturesUtil.closeNotification
+	CaptureScreen "Scenario5a_Assigned_User_Message"
+	assert that ImageFound (maxWaitTime,text: testData.usrID,searchRectangle:assignedUser)
+	assert that ImageFound (maxWaitTime,text: testData.usrFullName,searchRectangle:assignedUser)
+	CaptureScreen "Scenario5a_Assigned_User"
+	Log "Audit Event Key FEATURE_MANAGER_FEATURE_USER_ADD generated."
+	
+	
+	Log "Scenario 5b: Remove the user from feature"
+	Click text:"Remove",SearchRectangle:assignedUser
+	assert that ImageFound (maxWaitTime,text: testData.usrRemovedMsg)
+	FeaturesUtil.closeNotification
+	CaptureScreen "Scenario5b_Remove_User_Message"
+	assert that ImageFound (maxWaitTime,text: testData.noUsrAssignedMsg,searchRectangle:assignedUser)
+	CaptureScreen "Scenario5b_Remove_User"
+	Log "Audit Event Key FEATURE_MANAGER_FEATURE_USER_DELETE generated."
+	
+	
+	Log "Scenario 6: Click on Enable for all Positions and Users button and verify all the postions and users are assigned with feature "
+	click "FeatureManager/Button_Enable_All"
+	set searchArea to ORNScreen.scale (1, 0.45, 0.78, 0.28)
+	assert that ImageFound (maxWaitTime,text: "Enable for all?",searchRectangle:searchArea)
+	assert that ImageFound (maxWaitTime,text: testData.enableAllMsg,searchRectangle:searchArea,DPI:"20",IgnoreSpaces:"Yes", IgnoreNewLines:"Yes", EnableAggressiveTextExtraction:"Yes", EnhanceLocalContrast:"Yes")
+	Click Imagelocation(imageName:"FeatureManager/Button_Enable", searchRectangle:searchArea)
+	assert that ImageFound (maxWaitTime,text: testData.enbleAllSuccessMsg)
+	CaptureScreen "Scenario06_Enable_For_All_Position_Users"
+	Log "Audit Event Key FEATURE_MANAGER_FEATURE_ALL_ADD generated."
+	FeaturesUtil.closeNotification
+	
+	Log "Scenario 7: Click on Disable for all Positions and user button and verify the disable message and verify revert button"
+	click "FeatureManager/Button_Disable_For_All"
+	assert that ImageFound (maxWaitTime,text: testData.dsblAllMsg,SearchRectangle:searchArea,DPI:"20", IgnoreSpaces:"Yes", IgnoreNewLines:"Yes", EnableAggressiveTextExtraction:"Yes", EnhanceLocalContrast:"Yes")
+	assert that ImageFound("FeatureManager/Button_Revert") and ImageFound("FeatureManager/Button_Disable") and ImageFound( "FeatureManager/Button_Cancel")
+	CaptureScreen "Scenario07_Disable_Btn_Message"
+	
+	Log "Scenario 8: Click on revert button and verify feature is reverted back to previous state"
+	click "FeatureManager/Button_Disable_For_All"
+	click Imagelocation(imageName:"FeatureManager/Button_Revert", searchRectangle:searchArea)
+	assert that ImageFound (maxWaitTime,text: testData.rvrtSuccessMsg)
+	CaptureScreen ("Scenario08_Revert_Settings")
+	FeaturesUtil.closeNotification
+	
+	Log "Scenario 9: Click on disable for all button and verify the feature is disabled for all positions and users "
+	Click "FeatureManager/Button_Enable_All"
+	Click Imagelocation(imageName:"FeatureManager/Button_Enable", searchRectangle:searchArea)
+	FeaturesUtil.closeNotification
+	click "FeatureManager/Button_Disable_For_All"
+	click Imagelocation(imageName:"FeatureManager/Button_Disable", searchRectangle:searchArea), 
+	assert that ImageFound (waitfor: maxWaitTime, text: testData.dsblSuccessMsg)
+	CaptureScreen ("Scenario09_Disable_For_All_User_Position")
+	Log "Audit Event Key FEATURE_MANAGER_FEATURE_ALL_DELETE generated."
+	FeaturesUtil.closeNotification
+	
+	Log "Scenario 10: Navigate to Feature Administration page using breadcrum "
+	set breadCrumNavigation to ORNScreen.scale (0, 0.20, 0.78, 0.28)
+	click Imagelocation(text:"Features", searchRectangle:breadCrumNavigation)
+	assert that ImageFound (waitfor: maxWaitTime, text: "Feature Administration") 
+	CaptureScreen ("Scenario10_Feature_Adminstration_Page")
+	
+	Log "Scenario 11: Click on Help link and verify Features wiki page is displayed"
+	Click text:"Help"
+	assert that ImageFound (waitfor: maxWaitTime, text: "Features Help") 
+	CaptureScreen ("Scenario11_Feature_Help_Wiki_Page")
+	
+	//Login to the non-millennium tenant (8e33ae3d-4872-4d2f-a059-5f2307fcbf3b) 
+	(*DSKBrowser.launchChromeIncognitoMaxURL nonMillTenantURL
+	
+	//Enter details for login
+	Click (waitfor: maxWaitTime, image:"FeatureManager/Icon_PrincipalMockIDP")
+	TypeText testData.nonMillUser
+	Click "FeatureManager/Icon_RealmID"
+	TypeText testData.mockRealmID
+	click "FeatureManager/Button_MockIDPLogIn"
+	
+	Log "Scenario 12 : Navigate to Features tab and Verify Assigned Positions tab is not displayed"
+	Click "FeatureManager/Icon_Features"
+	FeaturesUtil.searchFeature testData.mockFeature
+	Click Imagelocation(waitfor: maxWaitTime, text:testData.mockFeature, searchRectangle:selectFeature)
+	set assignedUser to ORNScreen.scale (0, 0.55, 1,0.60)
+	assert that not ImageFound (3,text: "Assigned Positions",SearchRectangle:assignedUser)
+	assert that  ImageFound (waitfor: maxWaitTime, text: "Assigned Users",SearchRectangle:assignedUser)
+	CaptureScreen ("Scenario12_Assigned_Postion_Not_Displayed")
+	
+	Log "Scenario 13: Click on Enable for all users and Verify feature is enabled for all Users"
+	Click "FeatureManager/Button_Enable_All"
+	Click Imagelocation(imageName:"FeatureManager/Button_Enable", searchRectangle:searchArea)
+	assert that ImageFound (waitfor: maxWaitTime, text: testData.allUserAssigned) 
+	CaptureScreen ("Scenario13_Feature_Enable_All_Users")
+	FeaturesUtil.closeNotification
+	
+	Log "Scenario 14: Click on Disable for users button and click on Revert button and verify revert message" 
+	Click "FeatureManager/Button_Disable_For_All"
+	assert that ImageFound (waitfor: maxWaitTime, text: testData.dsblAllMsg,SearchRectangle:searchArea,DPI:"20", IgnoreSpaces:"Yes", IgnoreNewLines:"Yes", EnableAggressiveTextExtraction:"Yes", EnhanceLocalContrast:"Yes")
+	assert that ImageFound("FeatureManager/Button_Revert") and ImageFound("FeatureManager/Button_Disable") and ImageFound( "FeatureManager/Button_Cancel")
+	click Imagelocation(imageName:"FeatureManager/Button_Revert", searchRectangle:searchArea)
+	assert that ImageFound (waitfor: maxWaitTime, text: testData.rvrtSuccessMsg)
+	CaptureScreen ("Scenario14_Feature_Revert_All_Users")
+	FeaturesUtil.closeNotification
+	
+	Log "Scenario 15: Click on Disable for all users button and verify feature is disabled for all users"
+	Click "FeatureManager/Button_Enable_All"
+	Click Imagelocation(imageName:"FeatureManager/Button_Enable", searchRectangle:searchArea)
+	FeaturesUtil.closeNotification
+	Click "FeatureManager/Button_Disable_For_All"
+	Click Imagelocation(imageName:"FeatureManager/Button_Disable", searchRectangle:searchArea)
+	assert that ImageFound (waitfor: maxWaitTime, text: testData.noUserMsg)
+	CaptureScreen ("Scenario15_Disabled_All_Users")
+	FeaturesUtil.closeNotification
+	
+	//Log out of Application
+	Click text:"Logout",CaseSensitive:"True", Contrast:"Off", EnableAggressiveTextExtraction:"True", IgnoreNewLines:"True", IgnoreSpaces:"True", Language:"English",SearchRectangle:ORNScreen.topRight *)	
+Catch exception	
+	ORNEnvironment.handleException environment, exception
+end try

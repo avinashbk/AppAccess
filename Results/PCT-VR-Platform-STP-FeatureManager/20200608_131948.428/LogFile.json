@@ -1,0 +1,401 @@
+{
+	"entries": [
+		{
+				"message": "Running PCT-VR-Platform-STP-FeatureManager.script",
+				"identifier": "START",
+				"timestamp": "2020-06-08 13:19:48.468 +0530"
+			},
+		{
+				"handlerName": "function_prepare",
+				"timestamp": "2020-06-08 13:19:48.683 +0530",
+				"message": "Reading environment file: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Resources/PCT-VR-Platform-STP-FeatureManager.json",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 3,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_prepare",
+				"timestamp": "2020-06-08 13:19:48.717 +0530",
+				"message": "Applying arguments: (env:\"staging\")",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 7,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_prepare",
+				"timestamp": "2020-06-08 13:19:48.736 +0530",
+				"message": "Applying defaults: dev",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 8,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_environmenttotest",
+				"timestamp": "2020-06-08 13:19:48.760 +0530",
+				"message": "Using Arguments: (env:\"staging\")",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 12,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_prepare",
+				"timestamp": "2020-06-08 13:19:48.780 +0530",
+				"message": "Retrieving user information",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 17,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_prepare",
+				"timestamp": "2020-06-08 13:19:48.971 +0530",
+				"message": "Retrieving required test data",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 22,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_prepare",
+				"timestamp": "2020-06-08 13:19:49.210 +0530",
+				"message": "Active device connection detected. Reusing existing connection to WIN10T-00327.northamerica.cerner.net",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 35,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_prepare",
+				"timestamp": "2020-06-08 13:19:49.293 +0530",
+				"message": "Environment setup complete",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 49,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_apply",
+				"timestamp": "2020-06-08 13:19:49.374 +0530",
+				"message": "Applying ORNGlobalSettings.",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script",
+				"handlerLine": 2,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_apply",
+				"timestamp": "2020-06-08 13:19:49.394 +0530",
+				"message": "REMOTEWORKINTERVAL = 1.5",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script",
+				"handlerLine": 9,
+				"identifier": "set"
+			},
+		{
+				"handlerName": "on_apply",
+				"timestamp": "2020-06-08 13:19:49.507 +0530",
+				"message": "CURRENTTEXTPLATFORM = Generic OCR",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script",
+				"handlerLine": 19,
+				"identifier": "set"
+			},
+		{
+				"handlerName": "on_apply",
+				"timestamp": "2020-06-08 13:19:49.531 +0530",
+				"message": "ORNGlobalSettings applied, continuing...",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script",
+				"handlerLine": 21,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_scale",
+				"timestamp": "2020-06-08 13:19:49.618 +0530",
+				"message": "Scaled Search Area is: (0,54,1920,216)",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNScreen.script",
+				"handlerLine": 5,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_scale",
+				"timestamp": "2020-06-08 13:19:49.653 +0530",
+				"message": "Scaled Search Area is: (0,194.4,1920,1080)",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNScreen.script",
+				"handlerLine": 5,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_dismissrulesofroad",
+				"timestamp": "2020-06-08 13:19:49.741 +0530",
+				"message": "Checking for rules of the road message",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 2,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_scale",
+				"timestamp": "2020-06-08 13:19:49.774 +0530",
+				"message": "Scaled Search Area is: (0,0,1920,270)",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 5,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_dismissrulesofroad",
+				"timestamp": "2020-06-08 13:19:53.043 +0530",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"message": "found at (768, 52)",
+				"image": "(TEXT:\"Rules of the Road\")",
+				"handlerLine": 3,
+				"identifier": "imagefound"
+			},
+		{
+				"handlerName": "on_dismissrulesofroad",
+				"timestamp": "2020-06-08 13:19:53.080 +0530",
+				"message": "[returnKey]",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 4,
+				"identifier": "typetext"
+			},
+		{
+				"handlerName": "function_scale",
+				"timestamp": "2020-06-08 13:19:53.117 +0530",
+				"message": "Scaled Search Area is: (0,1004.4,96,1080)",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 5,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_windowslogincheck",
+				"timestamp": "2020-06-08 13:19:53.139 +0530",
+				"message": "Checking if user is logged into windows",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 4,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "function_windowslogincheck",
+				"timestamp": "2020-06-08 13:19:57.560 +0530",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"message": "found at (26, 1061)",
+				"image": "DSKWindows/Button_StartMenu",
+				"handlerLine": 5,
+				"identifier": "imagefound"
+			},
+		{
+				"handlerName": "function_windowslogincheck",
+				"timestamp": "2020-06-08 13:19:57.584 +0530",
+				"message": "User is logged into Windows device",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 6,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_launchchromeincognito",
+				"timestamp": "2020-06-08 13:19:57.605 +0530",
+				"message": "Opening chrome in incognito mode.",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"handlerLine": 3,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_killtask",
+				"timestamp": "2020-06-08 13:19:57.631 +0530",
+				"message": "Ending task chrome.exe",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 3,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_killtask",
+				"timestamp": "2020-06-08 13:19:57.682 +0530",
+				"message": "[windowsKey]r",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 6,
+				"identifier": "typetext"
+			},
+		{
+				"handlerName": "on_killtask",
+				"timestamp": "2020-06-08 13:19:59.554 +0530",
+				"message": "taskkill /f /IM chrome.exe[returnKey]",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 8,
+				"identifier": "typetext"
+			},
+		{
+				"handlerName": "on_launchtask",
+				"timestamp": "2020-06-08 13:19:59.580 +0530",
+				"message": "Launching task chrome -Incognito",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 3,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_launchtask",
+				"timestamp": "2020-06-08 13:20:01.100 +0530",
+				"message": "[windowsKey]r",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 4,
+				"identifier": "typetext"
+			},
+		{
+				"handlerName": "on_launchtask",
+				"timestamp": "2020-06-08 13:20:02.856 +0530",
+				"message": "chrome -Incognito[returnKey]",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script",
+				"handlerLine": 6,
+				"identifier": "typetext"
+			},
+		{
+				"handlerName": "on_launchchromeincognito",
+				"timestamp": "2020-06-08 13:20:16.524 +0530",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"message": "Unable to Find Image DSKBrowser/Icon_Chrome_Incognito",
+				"image": "DSKBrowser/Icon_Chrome_Incognito",
+				"handlerLine": 6,
+				"identifier": "imagefound"
+			},
+		{
+				"handlerName": "on_launchchromeincognito",
+				"timestamp": "2020-06-08 13:20:18.204 +0530",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"message": "found at (994, 302)",
+				"image": "(TEXT:\"gone incognito\")",
+				"handlerLine": 6,
+				"identifier": "imagefound"
+			},
+		{
+				"handlerName": "on_launchchromeincognito",
+				"timestamp": "2020-06-08 13:20:18.228 +0530",
+				"message": "Chrome has been opened in Incognito mode",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"handlerLine": 7,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_launchchromeincognitomaxurl",
+				"timestamp": "2020-06-08 13:20:18.248 +0530",
+				"message": "Entering URL into chrome",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"handlerLine": 3,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_launchchromeincognitomaxurl",
+				"timestamp": "2020-06-08 13:20:18.267 +0530",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"identifier": "typetext",
+				"handlerLine": 4
+			},
+		{
+				"handlerName": "on_launchchromeincognitomaxurl",
+				"timestamp": "2020-06-08 13:20:19.801 +0530",
+				"message": "[returnKey]",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"handlerLine": 5,
+				"identifier": "typetext"
+			},
+		{
+				"handlerName": "on_maximize",
+				"timestamp": "2020-06-08 13:20:21.326 +0530",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"message": "found at (1852, 15)",
+				"image": "DSKBrowser/Button_Restore",
+				"handlerLine": 2,
+				"identifier": "imagefound"
+			},
+		{
+				"handlerName": "on_maximize",
+				"timestamp": "2020-06-08 13:20:21.349 +0530",
+				"message": "Browser is maxmized",
+				"scriptName": "C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script",
+				"handlerLine": 3,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_bandulogin",
+				"timestamp": "2020-06-08 13:20:55.751 +0530",
+				"scriptName": "C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script",
+				"message": "Unable To Find Any Image On Screen \"(TEXT:\"Sign in\")\" within 30.00 seconds. Text might be too low contrast to detect.",
+				"image": "(TEXT:\"Sign in\")",
+				"handlerLine": 2,
+				"identifier": "Exception"
+			},
+		{
+				"handlerName": "on_handleexception",
+				"timestamp": "2020-06-08 13:20:55.790 +0530",
+				"message": "There was an exception in test execution, cleaning up before handling exception.",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 2,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_handleexception",
+				"timestamp": "2020-06-08 13:20:55.970 +0530",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"image": "Exception-Prior-to-Cleanup.png",
+				"handlerLine": 4,
+				"identifier": "capturescreen"
+			},
+		{
+				"handlerName": "on_cleanup",
+				"timestamp": "2020-06-08 13:20:56.072 +0530",
+				"message": "Disconnecting sut: WIN10T-00327.northamerica.cerner.net",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 12,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_disconnectsut",
+				"timestamp": "2020-06-08 13:20:56.159 +0530",
+				"message": "Closing active application",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script",
+				"handlerLine": 5,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_disconnectsut",
+				"timestamp": "2020-06-08 13:20:56.207 +0530",
+				"message": "[windowsAltKey][F4]",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script",
+				"handlerLine": 6,
+				"identifier": "typetext"
+			},
+		{
+				"handlerName": "on_disconnectsut",
+				"timestamp": "2020-06-08 13:20:56.231 +0530",
+				"message": "Attempting to disconnect from: WIN10T-00327.northamerica.cerner.net",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script",
+				"handlerLine": 15,
+				"identifier": "Log"
+			},
+		{
+				"handlerName": "on_disconnectsut",
+				"timestamp": "2020-06-08 13:20:56.276 +0530",
+				"message": "WIN10T-00327.northamerica.cerner.net",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script",
+				"handlerLine": 16,
+				"identifier": "disconnect"
+			},
+		{
+				"handlerName": "on_handleexception",
+				"timestamp": "2020-06-08 13:20:56.386 +0530",
+				"message": "Exception Call Stack information is ((Handler:\"pct_vr_platform_stp_featuremanager\", Line:\"28\", MeObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script\", MessageName:\"on_pct_vr_platform_stp_featuremanager\", MessageType:\"Command\", objectType:\"SenseTalkFrame\", RepeatIndex:\"0\", ScriptObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script\", TryDepth:\"1\"),(Handler:\"bandulogin\", HandlerOffset:\"1102\", Line:\"2\", MeObjectID:\"C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script\", MessageName:\"on_bandulogin\", MessageType:\"Command\", objectType:\"SenseTalkFrame\", RepeatIndex:\"0\", ScriptObjectID:\"C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script\", TargetObjectID:\"C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script\", TryDepth:\"0\"))",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 7,
+				"identifier": "LogError"
+			},
+		{
+				"handlerName": "on_handleexception",
+				"timestamp": "2020-06-08 13:20:56.409 +0530",
+				"message": "Image Not Found - waitfor Error - Unable To Find Any Image On Screen \"(TEXT:\"Sign in\")\" within 30.00 seconds. Text might be too low contrast to detect.",
+				"scriptName": "C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script",
+				"handlerLine": 8,
+				"identifier": "Throw"
+			},
+		{
+				"message": "(Duration:\"67.958\", Errors:\"2\", Exceptions:\"2\", StartTime:\"2020-06-08 13:19:48 +0530\", Successes:\"0\", TestCase:\"PCT-VR-Platform-STP-FeatureManager.script\", Warnings:\"0\")",
+				"identifier": "EndTestCase",
+				"timestamp": "2020-06-08 13:20:56.459 +0530"
+			},
+		{
+				"message": "Image Not Found waitfor Error - Unable To Find Any Image On Screen \"(TEXT:\"Sign in\")\" within 30.00 seconds. Text might be too low contrast to detect. -- Execution Time 0:01:08 PCT-VR-Platform-STP-FeatureManager.script",
+				"identifier": "FAILURE",
+				"timestamp": "2020-06-08 13:20:56.577 +0530"
+			}
+	],
+	"createdTimestamp": "2020-06-08 13:19:48.498 +0530"
+}

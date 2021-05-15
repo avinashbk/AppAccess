@@ -1,0 +1,86 @@
+﻿(** 
+	Test Case: PCT-WF-AppAccess-EndUserAccess 
+	RQM Test Case ID: 119)
+**)
+// Note:We have to disable all position and user from default bundle before executing this script and reset it after execution
+
+// Optional Parameter, if defined will replace the defaults. Example for testArguments - "env:dev" would replace defaultEnvironment
+params testArguments
+
+set defaultEnvironment to "staging" //  Used if env is not passed in as a parameter
+set resourceFile to ResourcePath("PCT-WF-AppAccess-EndUserAccess.json")
+set environment to ORNEnvironment.prepare(resourceFile, testArguments, defaultEnvironment)
+
+//Retrieve Orion global variables
+ORNGlobalSettings.apply
+set maxWaitTime to global maxWaitTime
+set popUpArea to ORNScreen.scale (.20, .35, .75, .75)
+set menuArea to ORNScreen.scale (0, 0, .45, .50)
+
+try		
+	//creating actions local variables of testdata
+	set user1 to item 1 of environment.users
+	set user2 to item 2 of environment.users
+	set user3 to item 3 of environment.users
+	set user4 to item 4 of environment.users
+	
+	// Install and Launch application
+	MBLAppManagement.setupAndLaunchApplication environment
+	
+	//Log into the application as User 1. 
+	MBLBadgeProvision.SelectDomainBadge environment.domain
+	MBLcredential.Login user1.username, user1.password
+	
+	//User1 and position1 have no access to bundle application
+	log "Scenario1-User1 and position1 have no access to bundle application"
+	WaitFor maxWaitTime, text:environment.assertions.accessDeniedHeader, SearchRectangle:popUpArea
+	Assert that imagefound(maxWaitTime,text:environment.assertions.accessDeniedMsg, SearchRectangle:popUpArea)
+	CaptureScreen (Name: "Scenario1_User1_NoAccess_Position1_NoAccess")
+	
+	Click text:environment.assertions.oKBtn, SearchRectangle:popUpArea
+	WaitFor maxWaitTime, text:environment.assertions.locationHeader
+	
+	//Log into the application as User 2. 
+	MBLBadgeProvision.SelectDomainBadge environment.domain
+	MBLcredential.Login user2.username, user2.password
+	
+	//User2 have no access and position2 have access to bundle application
+	log "Scenario2-User2 have no access and position2 have access to bundle application"
+	WaitFor maxWaitTime, text:environment.assertions.listTxt, SearchRectangle:menuArea
+	Assert that imagefound(maxWaitTime, text:environment.assertions.listTxt, SearchRectangle:menuArea)
+	CaptureScreen (Name: "Scenario2_User2_NoAccess_Position2_Access")
+	
+	MBLCernerAppUtilities.openUserMenu 
+	MBLCernerAppUtilities.clickLogOutSettingsMenu	
+	
+	//Log into the application as User 3. 
+	MBLBadgeProvision.SelectDomainBadge environment.domain
+	MBLcredential.Login user3.username, user3.password
+	
+	//User3 have access and position3 have no access to bundle application
+	log "Scenario3-User3 have access and position3 have no access to bundle application"
+	WaitFor maxWaitTime, text:environment.assertions.listTxt, SearchRectangle:menuArea
+	Assert that imagefound(maxWaitTime, text:environment.assertions.listTxt, SearchRectangle:menuArea)
+	CaptureScreen (Name: "Scenario3_User3_Access_Position3_NoAccess")
+	
+	MBLCernerAppUtilities.openUserMenu 
+	MBLCernerAppUtilities.clickLogOutSettingsMenu 
+	
+	//Log into the application as User 4. 
+	MBLBadgeProvision.SelectDomainBadge environment.domain
+	MBLcredential.Login user4.username, user4.password
+	
+	//User4 have access and position4 have no access to bundle application
+	log "Scenario4-User4 and position4 have access to bundle application"
+	WaitFor maxWaitTime, text:environment.assertions.listTxt, SearchRectangle:menuArea
+	Assert that imagefound(maxWaitTime, text:environment.assertions.listTxt, SearchRectangle:menuArea)
+	CaptureScreen (Name: "Scenario4_User4_Access_Position4_Access")
+	
+	MBLCernerAppUtilities.openUserMenu 
+	MBLCernerAppUtilities.clickLogOutSettingsMenu
+	
+	// End of Test
+	ORNEnvironment.cleanup environment	
+Catch exception
+	ORNEnvironment.handleException environment, exception
+end try

@@ -1,0 +1,95 @@
+{  
+   "suts":[  
+      {  
+         "OS":"Windows-VM",
+         "formFactor":"desktop"
+      }
+   ],
+   "dev":{  
+      "domain":"deveng",
+      "assertions":{
+         "realm_id": "provide.ip.devcerner.net",
+         "envDtlHeader":"Environment Details",
+         "featureHeader":"Feature Administration",
+         "posSuccessMsg":"The assigned positions were updated successfully",
+         "usrSuccessMsg":"The user was successfully assigned",
+         "usrRemovedMsg":"The user was successfully removed",
+         "enableAllMsg":"Are you sure you want to enable this feature for all positions and users?",
+         "enbleAllSuccessMsg":"All positions and users have been assigned",
+         "dsblAllMsg":"Do you want to revert to the previous manual settings or disable for all",
+         "rvrtSuccessMsg":"Previous configuration restored successfully",
+         "dsblSuccessMsg":"No positions or users are currently assigned",
+         "usrID":"ch042504",
+         "usrFullName":"Hiremath, Chidanand",
+         "noUsrAssignedMsg":"No users are assigned",
+         "feature":"Schedule",
+         "position":"admin",
+         "nonMillUser":"vd041096",
+         "mockFeature":"TestingSTP",
+         "realmID":"provide.temp_rho.cernerasp.com",
+         "mockRealmID":"mock-idp",
+         "noUserMsg":"No users are currently assigned",
+         "allUserAssigned":"All users have been assigned",
+         "featureDetails":[  
+            "Release Notes",
+            "Reference Pages",
+            "Available Date",
+            "Activation Date",
+            "Build Required",
+            "Packages Required",
+            "Description"
+         ]
+      },
+      "users":[  
+         {  
+            "userid":"gt033193",
+            "password":"cerner"
+         }
+      ],
+      "endpoint":"https://engineering.devcernercentral.com/features/tenants/pi2Au6O6r-41IDt-griqAFji_BB2UQv6",
+      "endpoint1":"https://mock.devcernercentral.com/features/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b"
+   },
+   "staging":{  
+      "domain":"stgeng",
+      "assertions":{  
+         "envDtlHeader":"Environment Details",
+         "featureHeader":"Feature Administration",
+         "posSuccessMsg":"The assigned positions were updated successfully",
+         "usrSuccessMsg":"The user was successfully assigned",
+         "usrRemovedMsg":"The user was successfully removed",
+         "enableAllMsg":"Are you sure you want to enable this feature for all positions and users?",
+         "enbleAllSuccessMsg":"All positions and users have been assigned",
+         "dsblAllMsg":"Do you want to revert to the previous manual settings or disable for all",
+         "rvrtSuccessMsg":"Previous configuration restored successfully",
+         "dsblSuccessMsg":"No positions or users are currently assigned",
+         "usrID":"ab030405",
+         "usrFullName":"Gowda, Avinash",
+         "noUsrAssignedMsg":"No users are assigned",
+         "feature":"Schedule",
+         "position":"admin",
+         "mockFeature":"TestingSTP",
+         "nonMillUser":"vd041096",
+         "realmID":"deveng.temp_rho.cernerasp.com",
+         "mockRealmID":"mock-idp",
+         "noUserMsg":"No users are currently assigned",
+         "allUserAssigned":"All users have been assigned",
+         "featureDetails":[  
+            "Release Notes",
+            "Reference Pages",
+            "Available Date",
+            "Activation Date",
+            "Build Required",
+            "Packages Required",
+            "Description"
+         ]
+      },
+      "users":[  
+         {  
+            "userid":"gt033193",
+            "password":"g"
+         }
+      ],
+      "endpoint":"https://vidhan.devcernerpowerchart.net/features/tenants/2c400054-42d8-4e74-87b7-80b5bd5fde9f",
+      "endpoint1":"https://mock.devcernercentral.com/features/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b"
+   }
+}

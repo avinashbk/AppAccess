@@ -1,0 +1,75 @@
+﻿(**
+	PCT-WF-AppAccess-HappyPath 
+	RQM ID:33
+**)
+
+params testArguments
+
+set defaultEnvironment to "staging"
+set resourceFile to ResourcePath("PCT-WF-AppAccess-HappyPath.json")
+set environment to ORNEnvironment.prepare(resourceFile, testArguments, defaultEnvironment)
+ORNGlobalSettings.apply
+set maxWaitTime to global maxWaitTime
+try		
+	set appAccessURL to environment.endpoint
+	set user to ORNUser.getUser(environment, "appAccessUser")
+	set bundleName to environment.assertions.bundleName
+	set bundleCreatedMsg to environment.assertions.bundleCreated
+	set bundleUpdatedMsg to environment.assertions.bundleUpdated
+	set positionName1 to environment.assertions.positionName1 
+	set positionName2 to environment.assertions.positionName2 
+	set positionUpdatedMsg to environment.assertions.positionUpdated
+	set userUpdatedMsg to environment.assertions.userUpdated
+	set appName to environment.assertions.applicationName
+	set userName to environment.assertions.userName
+	DSKUtilities.dismissRulesOfRoad
+	DSKBrowser.launchChromeIncognitoMaxURL appAccessURL
+	
+	// Open chrome in incognito and enter harness url	
+	//OSCLogin.millenniumPlusLogin  user.username, user.password
+	
+	// Navigate to bundle administration
+	AppAccessHome.clickOnBundles
+	
+	// Scenario01 - Create new bundle, assert that bundle successfully created, and capture screen.
+	BundleAdministration.createBundle bundleName
+	set searchArea to ORNScreen.scale (0, 0, .35, .7)
+	Assert that ImageFound(maxWaitTime, text: bundleCreatedMsg, SearchRectangle: searchArea) and imagefound(text:bundleName,ignoreSpaces:Y,ignorecase:Y,SearchRectangle:searchArea) with "Scenario01 - Bundle Successfully Created"	
+	CaptureScreen "Scenario01 - Bundle Successfully Created" 
+	
+	// Scenario02 - Add application to the bundle and assert that bundle successfully updated , and capture screen.
+	Applications.addToBundle appName	
+	Assert that ImageFound(maxWaitTime, text: bundleUpdatedMsg, SearchRectangle: searchArea ) and imagefound(text: appName,ignoreSpaces:Y,ignorecase:Y,SearchRectangle:searchArea) with "Scenario02 - Application added to bundle"	
+	CaptureScreen "Scenario02 - Application added to bundle"
+	
+	// Scenario03 - Add position to the bundle from sub menu, assert that bundle access updated , and capture screen. Pending to resolve the defect.
+	PositionsSubMenu.addPositionToBundle positionName1
+	Assert that ImageFound(maxWaitTime, text: bundleUpdatedMsg, SearchRectangle: searchArea ) and imagefound(text:positionName1 ,ignoreSpaces:Y,ignorecase:Y,SearchRectangle:searchArea) with "Scenario03  - Position added to bundle"		
+	CaptureScreen "Scenario03 - Position added to bundle"
+	
+	// Scenario04 -  Add user to bundle and assert that bundle successfully updated , and capture screen.	
+	wait 10 // This wait period is required to load the page after verification step of postion added to the bundle.
+	UsersSubMenu.addUserToBundle userName, environment.assertions.realm	
+	Assert that ImageFound(maxWaitTime, text: bundleUpdatedMsg, SearchRectangle: searchArea ) and imagefound(text:UserName ,ignoreSpaces:Y,ignorecase:Y,SearchRectangle:searchArea) with "Scenario04 - User added to bundle"
+	CaptureScreen "Scenario04 - User added to bundle"
+	
+	// Scenario05 - Add bundle to a positon from main menu, assert that position access updated , and capture screen.
+	PositionsMainMenu.addBundleToPosition positionName2,bundleName
+	Assert that ImageFound(maxWaitTime, text: positionUpdatedMsg, SearchRectangle: searchArea ) and imagefound(text:positionName2 ,ignoreSpaces:Y,ignorecase:Y,SearchRectangle:searchArea) with " Scenario05 - Bundle added to position"
+	CaptureScreen " Scenario05 - Bundle added to position"	
+	
+	// Scenario06 - Add bundle to a user from main menu, assert that position access updated , and capture screen.
+	UsersMainMenu.addUserToPosition user.username,bundleName
+	Assert that ImageFound(maxWaitTime, text: userUpdatedMsg, SearchRectangle: searchArea )and imagefound(text:user.username ,ignoreSpaces:Y,ignorecase:Y,SearchRectangle:searchArea) with "Scenario06 - Bundle added to user"		
+	CaptureScreen "Scenario06  - Bundle added to user"	
+	
+	// Delete created bundle for future executions.
+	BundleAdministration.deleteBundle bundleName	
+	
+	// Log out from application
+	AppAccessHome.logOutFromAppAccess		
+	ORNEnvironment.cleanup environment	
+Catch exception			
+	BundleAdministration.deleteBundle bundleName	
+	ORNEnvironment.handleException environment, exception
+end try

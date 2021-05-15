@@ -1,0 +1,149 @@
+﻿(** 
+	Test Case: PCT-VR-Platform-STP-FeatureManager
+	RQM Test Case ID: 534
+**)
+// Optional Parameter, if defined will replace the defaults. Example for testArguments - "env:dev" would replace defaultEnvironment
+params testArguments
+set defaultEnvironment to "dev"
+set resourceFile to ResourcePath("PCT-VR-Platform-STP-FeatureManager.json")
+set environment to ORNEnvironment.prepare(resourceFile, testArguments, defaultEnvironment) 
+// Retrieve Orion global variables such as maxWaitTime (30 seconds) and remoteInterval (1.5 seconds)
+ORNGlobalSettings.apply
+set maxWaitTime to global maxWaitTime
+
+try
+	// Setting reusable search rectangles and variables
+	set tabsAreaSR to ORNScreen.scale(0, .05, 1, .2)
+	set searchArea to ORNScreen.scale(0, .18, 1, 1)
+	
+	// Setting local variables w.r.t jason file
+	set banduUrl to environment.endpoint
+	set featureUrl to environment.endpoint1
+	set testData to environment.assertions
+	set users to environment.Users
+	
+	// Open the harness url and sign in
+	DSKUtilities.dismissRulesOfRoad
+	DSKBrowser.launchChromeIncognitoMaxURL banduURL
+	BanduUtil.banduLogin users.user1,users.pwd1
+	WaitFor maxWaitTime, text :"Logout",SearchRectangle:ORNScreen.scale(.7, 0, 1, .3)
+	
+	Click text:"Domains",SearchRectangle:tabsAreaSR
+	Click text:"New Domain", SearchRectangle:ORNScreen.scale(.7, 0, 1, .3), WaitFor:maxWaitTime
+	DomainsUtil.createDomain testData.domain, testData.domain,testData.domain,""
+	
+	Log "Scenario 2: Navigating to Create Feature page"
+	Click text:"Features", SearchRectangle: tabsAreaSR
+	waitFor maxWaitTime, text:"Feature Administration", SearchRectangle: ORNScreen.scale(0,.03,1,.2)
+	Click "Bandu/Features/Button_NewFeature"
+	Assert that imageFound( maxWaitTime, text:"Create Feature")
+	CaptureScreen "Scenario02 _Create Feature page"
+	
+	Log "Scenario 3: Enter Feature details and save a feature. Edit Feature page should display."
+	Set randomNo to random(10,100)	
+	Click "Bandu/Features_New-Edit/Label_KeyName_HotSpot"
+	TypeText testData.featureText && randomNo
+	Click "Bandu/Features_New-Edit/Label_DisplayName_HotSpot"
+	TypeText testData.featureText && randomNo
+	Click "Bandu/Features_New-Edit/Label_EnterFeatureDescription_HotSpot"
+	TypeText testData.featureText 
+	Click "Bandu/Features_New-Edit/Label_EnterTechnicalDescription_HotSpot"
+	TypeText testData.featureText 	
+	BanduUtil.scrollDownToImage "Bandu/Features_New-Edit/Label_ToggleType_HotSpot"
+	Click "Bandu/Features_New-Edit/Label_ToggleType_HotSpot"
+	WaitFor maxWaitTime, text:testData.toggleText
+	Click FoundImageLocation()
+	Click "Bandu/Features_New-Edit/Button_Save"
+	Assert that imageFound( maxWaitTime, text:"Feature created Successfully")
+	CaptureScreen "Scenario03_Edit Feature page"
+	
+	Log "Scenario 4: Associating domain to feature in Edit Feature page"
+	BanduUtil.scrollDownToImage "Bandu/Features_New-Edit/Label_ToggleType_HotSpot"
+	Click "Bandu/Features_New-Edit/Label_Domains_HotSpot"
+	TypeText testData.domain
+	TypeText returnKey
+	wait 2
+	click "Bandu/Features_New-Edit/Button_AddSelectedDomain"
+	waitfor maxWaitTime, text: testData.featureText && randomNo
+	Click "Bandu/Features_New-Edit/Button_Save"
+	Assert that imageFound( maxWaitTime, text:"Domain Associated Successfully")
+	CaptureScreen "Scenario04_Domain Associated Successfully"
+	
+	Log "Scenario 5: Associating tenant to domain"
+	BanduUtil.scrollDownToImage "Bandu/Features_New-Edit/Label_ToggleType_HotSpot"
+	click text:testData.Domain,SearchRectangle:ORNScreen.bottomHalf
+	click "Bandu/Features_EditingDomain/Lable_ReferencePage_HotSpot"
+	TypeText testData.featureReference	
+	click "Bandu/Features_EditingDomain/Label_ReleaseNotes_HotSpot"
+	TypeText  testData.FeatureRelease
+	BanduUtil.scrollDownToImage "Bandu/Features_New-Edit/Button_Save"
+	Click "Bandu/Features_New-Edit/Button_Save"	
+	BanduUtil.scrollDownToImage "Bandu/Features_New-Edit/Label_ToggleType_HotSpot"
+	Click text:testData.domain,SearchRectangle:ORNScreen.bottomHalf
+	Click Text:"Tenant",hotspot:(440,10),SearchRectangle:ORNScreen.bottomHalf
+	TypeText testData.tenantName
+	TypeText returnKey
+	wait 2
+	click "Bandu/Features_EditingDomain/Button_AddSelectedTenant"
+	waitfor maxWaitTime, text:testData.tenantName
+	click "Bandu/Features_EditingTenant/Checkbox_ClientFeature"
+	Click "Bandu/Features_New-Edit/Button_Save"
+	Assert that imageFound( maxWaitTime, text:"Tenant Added Successfully")
+	CaptureScreen "Scenario05_Tenant Associated Successfully"
+	
+	Log "Scenario 6: Load and login to Feature Manager"
+	DSKBrowser. openTabURLInChrome featureUrl
+	OSCLogin.millenniumPlusLogin  users.user2,users.pwd2
+	CaptureScreen "Scenario06_Feature Manager is loaded"
+	
+	Log "Scenario 7: Search and load added feature"
+	click text:"Filter Features",SearchRectangle: ORNScreen.topHalf
+	TypeText testData.Featuretext && randomNo
+	Click text: testData.Featuretext && randomNo ,SearchRectangle: ORNScreen.topHalf
+	set dateArea to (ImageRectangle(text:"Available Date").TopLeft+(-50,-10),(ImageRectangle(text:"Activation Date").bottomRight+(250,50)))
+	Assert that imageFound( maxWaitTime, text:"STP",SearchRectangle:dateArea)
+	Assert that imageFound( maxWaitTime, text:"TBD",SearchRectangle:dateArea)
+	CaptureScreen "Scenario07_Added feature has STP and TBD tags in FeatureManager"
+	
+	Log "Scenario 8: Login as Bandu Admin user and Enable Feature at Domain level"
+	BanduUtil.switchTab
+	Click text:"Features",SearchRectangle:tabsAreaSR
+	BanduUtil.applyFilter "Key","Equals", testData.featureText && randomNo
+	Click text:testData.featureText && randomNo,SearchRectangle: BanduUtil.getDomainSummaryRowSearchArea(testData.featureText && randomNo)
+	BanduUtil.scrollDownToImage "Bandu/Features_New-Edit/Label_ToggleType_HotSpot"
+	click text:testData.Domain,SearchRectangle:ORNScreen.bottomHalf
+	click "Bandu/Features_EditingDomain/Checkbox_EnableFeature"
+	Click "Bandu/Features_New-Edit/Button_Save"
+	Assert that imageFound( maxWaitTime, text:"Feature updated successfully",SearchRectangle:ORNScreen.TopHalf)
+	CaptureScreen "Scenario08_Enable Feature at Domain level"
+	
+	Log "Scenario 9:Login to Feature Manager and search for domain enabled feature"
+	BanduUtil.switchTab
+	DSKBrowser.refresh
+	click text:"Filter Features",SearchRectangle: ORNScreen.topHalf
+	TypeText testData.Featuretext && randomNo
+	Assert that not imageFound(maxWaitTime, text:testData.featureText && randomNo,SearchRectangle:ORNScreen.scale (0, 0.30, 1, .40))
+	CaptureScreen "Scenario09_Domain level enabled feature is not displayed"
+	
+	Log "Scenario 10: Login as Bandu Admin user and delete the newly created domain and feature"
+	BanduUtil.switchTab
+	DSKBrowser.refresh
+	waitfor maxWaitTime, text:"Domains"
+	Click text:"Domains",SearchRectangle:tabsAreaSR
+	DomainsUtil.deleteDomain testData.Domain
+	click "Bandu/Button_OK"
+	CaptureScreen "Scenario11_Domain is Deleted"
+	
+	Log "Scenario 11: Login as Bandu Admin user and delete the newly created domain and feature"
+	Click text:"Features",SearchRectangle:tabsAreaSR
+	BanduUtil.applyFilter "Key","Equals", testData.featureText && randomNo
+	Click text:"Delete",SearchRectangle: BanduUtil.getDomainSummaryRowSearchArea(testData.featureText && randomNo)
+	click "Bandu/Button_OK"
+	CaptureScreen "Scenario11_Feature is Deleted"
+	
+	Log "End of Test "
+	ORNEnvironment.cleanup environment			
+Catch exception
+	ORNEnvironment.handleException environment, exception
+end try
+

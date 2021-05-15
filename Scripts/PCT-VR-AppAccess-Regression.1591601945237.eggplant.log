@@ -1,0 +1,34 @@
+2020-06-08 13:09:05.726 runscript[15504:10936] WARNING - unable to create shared user defaults!
+2020-06-08 13:09:05.743 runscript[15504:10936] NSDocumentClass EGGDocument not NSDocument subclass
+2020-06-08 13:09:07.387 runscript[15504:10936] Eggplant (Command Line) is 20.0.0-Windows-64, build (1912121710), on Windows 6.2 ICU version 62.1
+2020-06-08 13:09:09.018 runscript[15504:10936] RLM: Initialized. Local license folder: C:/Users/ab030405/Application Data/Eggplant
+2020-06-08 13:09:09.059 runscript[15504:10936] Approved License: <RLMLicense eggplantexecution #15072 Floating Expires 2020-09-28 00:00:00 +0530>
+Eggplant (20.0.0-1912121710) running in Execution mode on Windows-64 Host:0x005056afd7d2
+2020-06-08 13:09:12.384 runscript[15504:19784] Load C:\Program Files\Eggplant\Eggplant.app\Resources\ABBYY\Bin\FREngine.dll
+2020-06-08 13:09:12.406 runscript[15504:19784] Successfully loaded FREngine.dll
+2020-06-08 13:09:12.770 runscript[15504:732] Connection with WIN10T-00327.northamerica.cerner.net STARTED. TYPE: RDP
+2020-06-08 13:09:12.858 runscript[15504:21244] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-AppAccess-Regression.script STARTED
+2020-06-08 13:09:12.873 runscript[15504:19784] OCR enabled-unlimited usage
+2020-06-08 13:09:12.931 runscript[15504:21244] Unable To Lock SuiteInfo file - Could not save EggplantCommon.suite.
+Error: 13
+If your file system does not support file locking please use:defaults write Eggplant SuiteLockingEnabled NO
+2020-06-08 13:09:13.036 runscript[15504:21244] Load Document Failed - Nothing at Location: C:/Eggplant Suite/ApplicationShared/OrionApplication-Shared.suite
+2020-06-08 13:09:13.036 runscript[15504:21244] Failed to load helper suite at C:/Eggplant Suite/ApplicationShared/OrionApplication-Shared.suite
+2020-06-08 13:09:13.037 runscript[15504:21244] Load Document Failed - Nothing at Location: C:/Eggplant Suite/DesktopShared/Desktop-Shared.suite
+2020-06-08 13:09:13.037 runscript[15504:21244] Failed to load helper suite at C:/Eggplant Suite/DesktopShared/Desktop-Shared.suite
+2020-06-08 13:09:13.037 runscript[15504:21244] Load Document Failed - Nothing at Location: C:/Eggplant Suite/OrionShared/Orion-Shared.suite
+2020-06-08 13:09:13.038 runscript[15504:21244] Failed to load helper suite at C:/Eggplant Suite/OrionShared/Orion-Shared.suite
+2020-06-08 13:09:13.038 runscript[15504:21244] Load Document Failed - Nothing at Location: C:/Eggplant Suite/OrionSharedComponents/OrionComponents-Shared.suite
+2020-06-08 13:09:13.038 runscript[15504:21244] Failed to load helper suite at C:/Eggplant Suite/OrionSharedComponents/OrionComponents-Shared.suite
+2020-06-08 13:09:13.038 runscript[15504:21244] Load Document Failed - Nothing at Location: C:/Eggplant Suite/AppAccess_FeatureManager/CernerCentralApps-Shared.suite
+2020-06-08 13:09:13.038 runscript[15504:21244] Failed to load helper suite at C:/Eggplant Suite/AppAccess_FeatureManager/CernerCentralApps-Shared.suite
+2020-06-08 13:09:13.040 runscript[15504:21244] File NSObject+GNUstepBase.m: 50. In -[NSObject(GNUstepBase) compare:] WARNING: The -compare: method for NSObject is deprecated.
+2020-06-08 13:09:13.552 runscript[15504:21244] Execution of the script located at path: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-AppAccess-Regression.script ENDED
+2020-06-08 13:09:13.553 runscript[15504:10936] reported exception - <NSException: 0x128f5b80> NAME:Script Failed REASON:STUnknownMessage:
+ERROR: No Such Function: 'prepare' INFO:{CallStack = ("(Handler:\"pct_vr_appaccess_regression\", Line:\"9\", MeObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-AppAccess-Regression.script\", MessageName:\"on_pct_vr_appaccess_regression\", MessageType:\"Command\", objectType:\"SenseTalkFrame\", RepeatIndex:\"0\", ScriptObjectID:\"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-AppAccess-Regression.script\", TryDepth:\"0\")"); OtherButton = ""; ScriptError = "Runtime Error at line 9: STUnknownMessage - ERROR: No Such Function: 'prepare'"; }
+2020-06-08 13:09:14.298 runscript[15504:10936] Completed CernerCentralApps-Tests.suite - PCT-VR-AppAccess-Regression.script
+2020-06-08 13:09:14.377 runscript[15504:732] Connection with WIN10T-00327.northamerica.cerner.net CLOSED. TYPE: RDP
+[13:09:12:414] [15504:000002dc] [INFO][com.freerdp.client.common.cmdline] - loading channelEx cliprdr
+[13:09:12:581] [15504:000002dc] [INFO][com.freerdp.core.nla] - TSCredentials: password
+[13:09:12:727] [15504:000002dc] [INFO][com.freerdp.gdi] - Local framebuffer format  PIXEL_FORMAT_RGBA32
+[13:09:12:727] [15504:000002dc] [INFO][com.freerdp.gdi] - Remote framebuffer format PIXEL_FORMAT_RGB16

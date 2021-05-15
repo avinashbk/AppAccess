@@ -1,0 +1,50 @@
+﻿2020-06-08 13:19:48.468 +0530	START		Running PCT-VR-Platform-STP-FeatureManager.script
+2020-06-08 13:19:48.683 +0530	Log		Reading environment file: C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Resources/PCT-VR-Platform-STP-FeatureManager.json	3	function_prepare	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:48.717 +0530	Log		Applying arguments: (env:"staging")	7	function_prepare	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:48.736 +0530	Log		Applying defaults: dev	8	function_prepare	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:48.760 +0530	Log		Using Arguments: (env:"staging")	12	function_environmenttotest	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:48.780 +0530	Log		Retrieving user information	17	function_prepare	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:48.971 +0530	Log		Retrieving required test data	22	function_prepare	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:49.210 +0530	Log		Active device connection detected. Reusing existing connection to WIN10T-00327.northamerica.cerner.net	35	function_prepare	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:49.293 +0530	Log		Environment setup complete	49	function_prepare	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:19:49.374 +0530	Log		Applying ORNGlobalSettings.	2	on_apply	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script
+2020-06-08 13:19:49.394 +0530	set		REMOTEWORKINTERVAL = 1.5	9	on_apply	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script
+2020-06-08 13:19:49.507 +0530	set		CURRENTTEXTPLATFORM = Generic OCR	19	on_apply	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script
+2020-06-08 13:19:49.531 +0530	Log		ORNGlobalSettings applied, continuing...	21	on_apply	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNGlobalSettings.script
+2020-06-08 13:19:49.618 +0530	Log		Scaled Search Area is: (0,54,1920,216)	5	function_scale	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNScreen.script
+2020-06-08 13:19:49.653 +0530	Log		Scaled Search Area is: (0,194.4,1920,1080)	5	function_scale	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNScreen.script
+2020-06-08 13:19:49.741 +0530	Log		Checking for rules of the road message	2	on_dismissrulesofroad	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:49.774 +0530	Log		Scaled Search Area is: (0,0,1920,270)	5	function_scale	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:53.043 +0530	imagefound	(TEXT:"Rules of the Road")	found at (768, 52)	3	on_dismissrulesofroad	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:53.080 +0530	typetext		[returnKey]	4	on_dismissrulesofroad	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:53.117 +0530	Log		Scaled Search Area is: (0,1004.4,96,1080)	5	function_scale	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:53.139 +0530	Log		Checking if user is logged into windows	4	function_windowslogincheck	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:57.560 +0530	imagefound	DSKWindows/Button_StartMenu	found at (26, 1061)	5	function_windowslogincheck	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:57.584 +0530	Log		User is logged into Windows device	6	function_windowslogincheck	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:57.605 +0530	Log		Opening chrome in incognito mode.	3	on_launchchromeincognito	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:19:57.631 +0530	Log		Ending task chrome.exe	3	on_killtask	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:57.682 +0530	typetext		[windowsKey]r	6	on_killtask	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:59.554 +0530	typetext		taskkill /f /IM chrome.exe[returnKey]	8	on_killtask	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:19:59.580 +0530	Log		Launching task chrome -Incognito	3	on_launchtask	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:20:01.100 +0530	typetext		[windowsKey]r	4	on_launchtask	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:20:02.856 +0530	typetext		chrome -Incognito[returnKey]	6	on_launchtask	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKUtilities.script
+2020-06-08 13:20:16.524 +0530	imagefound	DSKBrowser/Icon_Chrome_Incognito	Unable to Find Image DSKBrowser/Icon_Chrome_Incognito	6	on_launchchromeincognito	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:18.204 +0530	imagefound	(TEXT:"gone incognito")	found at (994, 302)	6	on_launchchromeincognito	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:18.228 +0530	Log		Chrome has been opened in Incognito mode	7	on_launchchromeincognito	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:18.248 +0530	Log		Entering URL into chrome	3	on_launchchromeincognitomaxurl	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:18.267 +0530	typetext			4	on_launchchromeincognitomaxurl	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:19.801 +0530	typetext		[returnKey]	5	on_launchchromeincognitomaxurl	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:21.326 +0530	imagefound	DSKBrowser/Button_Restore	found at (1852, 15)	2	on_maximize	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:21.349 +0530	Log		Browser is maxmized	3	on_maximize	C:/EggplantSuites/DesktopShared/Desktop-Shared.suite/Scripts/DSKBrowser.script
+2020-06-08 13:20:55.751 +0530	Exception	(TEXT:"Sign in")	Unable To Find Any Image On Screen "(TEXT:"Sign in")" within 30.00 seconds. Text might be too low contrast to detect.	2	on_bandulogin	C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script
+2020-06-08 13:20:55.790 +0530	Log		There was an exception in test execution, cleaning up before handling exception.	2	on_handleexception	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:20:55.970 +0530	capturescreen	Exception-Prior-to-Cleanup.png		4	on_handleexception	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:20:56.072 +0530	Log		Disconnecting sut: WIN10T-00327.northamerica.cerner.net	12	on_cleanup	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:20:56.159 +0530	Log		Closing active application	5	on_disconnectsut	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script
+2020-06-08 13:20:56.207 +0530	typetext		[windowsAltKey][F4]	6	on_disconnectsut	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script
+2020-06-08 13:20:56.231 +0530	Log		Attempting to disconnect from: WIN10T-00327.northamerica.cerner.net	15	on_disconnectsut	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script
+2020-06-08 13:20:56.276 +0530	disconnect		WIN10T-00327.northamerica.cerner.net	16	on_disconnectsut	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNSUT.script
+2020-06-08 13:20:56.386 +0530	LogError		Exception Call Stack information is ((Handler:"pct_vr_platform_stp_featuremanager", Line:"28", MeObjectID:"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script", MessageName:"on_pct_vr_platform_stp_featuremanager", MessageType:"Command", objectType:"SenseTalkFrame", RepeatIndex:"0", ScriptObjectID:"C:/EggplantSuites/IPDEV-Orion-CernerCentralApps/CernerCentralApps-Tests.suite/Scripts/PCT-VR-Platform-STP-FeatureManager.script", TryDepth:"1"),(Handler:"bandulogin", HandlerOffset:"1102", Line:"2", MeObjectID:"C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script", MessageName:"on_bandulogin", MessageType:"Command", objectType:"SenseTalkFrame", RepeatIndex:"0", ScriptObjectID:"C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script", TargetObjectID:"C:/EggplantSuites/Bandu/Bandu-Shared.suite/Scripts/BanduUtil.script", TryDepth:"0"))	7	on_handleexception	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:20:56.409 +0530	Throw		Image Not Found - waitfor Error - Unable To Find Any Image On Screen "(TEXT:"Sign in")" within 30.00 seconds. Text might be too low contrast to detect.	8	on_handleexception	C:/EggplantSuites/OrionShared/Orion-Shared.suite/Scripts/ORNEnvironment.script
+2020-06-08 13:20:56.459 +0530	EndTestCase		(Duration:"67.958", Errors:"2", Exceptions:"2", StartTime:"2020-06-08 13:19:48 +0530", Successes:"0", TestCase:"PCT-VR-Platform-STP-FeatureManager.script", Warnings:"0")
+2020-06-08 13:20:56.577 +0530	FAILURE		Image Not Found waitfor Error - Unable To Find Any Image On Screen "(TEXT:"Sign in")" within 30.00 seconds. Text might be too low contrast to detect. -- Execution Time 0:01:08 PCT-VR-Platform-STP-FeatureManager.script

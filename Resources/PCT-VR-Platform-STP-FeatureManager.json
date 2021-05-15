@@ -1,0 +1,41 @@
+{  
+   "suts":[  
+      {  
+         "name":"Windows-VM"
+      }
+   ],
+   "dev":{  
+      "domain":"deveng",
+      "users":[  
+         {  
+            "user1":"",
+            "pwd1":"",
+            "user2":"CH042504",
+            "pwd2":"C"
+         }
+      ],
+      "endpoint":"https://bandu.test.devcernerpowerchart.com/",
+      "endpoint1":"https://engineering.devcernercentral.com/features/tenants/pi2Au6O6r-41IDt-griqAFji_BB2UQv6/features",
+
+      "assertions":{  
+         "featureText":"Feature_Automation",
+         "toggleText":"Client toggle is planned",
+         "domain":"Domain Feature Automation",
+         "featureReference":"https://PowerChartTouch.com",
+         "featureRelease":"https://PowerChartTouch.com",
+         "tenantName":"Test Tenant (provide)"
+      }
+   },
+   "staging":{  
+      "domain":"stgeng",
+      "users":[  
+         {  
+
+         }
+      ],
+      "endpoint":"",
+      "assertions":{  
+
+      }
+   }
+}

@@ -1,0 +1,150 @@
+﻿(**
+	PCT-VR-AppAccess-Regression
+	(RQM ID: 43)
+**)
+
+params testArguments
+set defaultEnvironment to "staging"
+set resourceFile to ResourcePath("PCT-VR-AppAccess-Regression.json")
+set environment to ORNEnvironment.prepare(resourceFile, testArguments, defaultEnvironment)
+ORNGlobalSettings.apply
+try	
+	DSKUtilities.dismissRulesOfRoad
+	set appAccessURL to environment.endpoint
+	DSKBrowser.launchChromeIncognitoMaxURL appAccessURL
+	
+	// Open chrome in incognito and enter harness url	
+	set user to environment.users
+	//OSCLogin.millenniumPlusLogin user.userid, user.password		
+	
+	// Navigate to bundle administration
+	AppAccessHome.clickOnBundles
+	
+	log "Scenario01 - Create new bundle, assert that bundle successfully created and capture screen" 
+	BundleAdministration.createBundle environment.testData.bundleName
+	set searchArea to ORNScreen.scale (0, 0, .25, .7)
+	Assert that ImageFound(ORNInterval.medium, text: environment.testData.bundleCreated, SearchRectangle: searchArea) and imagefound(text: environment.testData.bundleName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario01 - Bundle successfully created" 
+	log "Audit Event Key ACTION_TYPE=view, BUNDLE_ID, BUNDLE_NAME, ASSIGNED_USER is generated.  See Requirement 583627 and 598054 for event attribute details"
+	
+	log "Scenario02 – Search for bundle and verify the bundle list populates based on search string and capture screen"
+	BundleAdministration.filterBundles  environment.testData.bundleName
+	set bundleRec to imageRectangle(text: environment.testData.bundleName)+ (0, -20, 0, 20)
+	Assert that ImageFound(ORNInterval.medium, text: environment.testData.bundleName, SearchRectangle: bundleRec) 
+	CaptureScreen "Scenario02 - Filtered bundle list"
+	
+	log "Scenario03 - Add application to the bundle and assert that bundle successfully updated and capture screen and this is a audit scenario"
+	Applications.addToBundle environment.testData.applicationName	
+	Assert that ImageFound(ORNInterval.long, text: environment.testData.bundleUpdated, SearchRectangle: searchArea ) and imagefound(text: environment.testData.applicationName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario03 - Application added to a bundle"
+	log "Audit Event Key ACTION_TYPE=modify, BUNDLE_ID, BUNDLE_NAME is generated.  See Requirement 598056 for event attribute details"
+	
+	log "Scenario04 - Add position to the bundle from sub menu, assert that bundle access updated and capture screen" //position tab is not functioning in deveng domain
+	PositionsSubMenu.addPositionToBundle environment.testData.positionName1
+	Assert that ImageFound(ORNInterval.medium, text: environment.testData.bundleUpdated, SearchRectangle: searchArea ) and imagefound(waitFor:30, text: environment.testData.positionName1, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario04 - Position added to a bundle" 
+	log "Audit Event Key ACTION_TYPE=modify, BUNDLE_ID, BUNDLE_NAME, POSITIONS, POSITIONS_NAMES is generated.  See Requirement 598057 for event attribute details"
+	
+	log "Scenario05 -  Verify realm is selected by default when single realm exisits. If more than one realm exists - no realm selected within bundles users tab"
+	Wait 5
+	UsersSubMenu.clickOnUsers
+	if UsersSubMenu.validateRealm then 
+		CaptureScreen "Scenario05 - Realm verification done accordingly within bundles users tab"
+	end if		
+	log "Scenario06 -  Add user to bundle from submenu and assert that bundle successfully updated , and capture screen"
+	UsersSubMenu.addSubMenuUserToBundle environment.testData.userName
+	
+	//Adding 2nd user to modify from main menu
+	UsersSubMenu.addSubMenuUserToBundle environment.testData.userName1
+	Assert that ImageFound(ORNInterval.long, text: environment.testData.bundleUpdated, SearchRectangle: searchArea ) and imagefound(text: environment.testData.userName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario06 - User added to a bundle"
+	log "Audit Event Key ACTION_TYPE=modify, BUNDLE_ID, BUNDLE_NAME, USER is generated.  See Requirement 624739 for event attribute details"
+	
+	log "Scenario07 -  Remove user to bundle from submenu and assert that bundle successfully updated , and capture screen" 
+	log "Audit scenario - Verfiy the events generated in the portal. Verify EVENT_KEY=APPLICATION_ACCESS_BUNDLE_USERS_MODIFY, ACTION_TYPE=delete, BUNDLE_ID, BUNDLE_NAME, USER, OUTCOME"
+	set searchArea to ORNScreen.scale (0, 0, .25, .7)
+	UsersSubMenu.removeUserFromSubMenu environment.testData.userName
+	Assert that ImageFound(ORNInterval.long, text: environment.testData.bundleUpdated, SearchRectangle: searchArea ) and imagefound(text: environment.testData.userName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario07 - User removed from bundle"
+	log "Audit Event Key ACTION_TYPE=delete, BUNDLE_ID, BUNDLE_NAME, USER is generated.  See Requirement 624744 for event attribute details"
+	
+	log "Scenario08 - Click Enable all Positions and Users option. Verify all users has access to assigned application and verify user and position submenu is disabled"
+	wait 3
+	Click (imageName: "FeatureManager/Button_Enable_All", SearchRectangle: ORNScreen.scale (0.7, 0.25, 1, .35), waitFor: ORNINterval.small)
+	Click (imageName: "FeatureManager/Button_Enable", SearchRectangle: ORNScreen.scale (0.7, 0.35, 1, .5), waitFor: ORNINterval.small)
+	Assert that ImageFound(ORNInterval.medium, imageName: "AppAccess/Positions_Disabled", SearchRectangle: ORNScreen.scale (0, 0.25, 0.3, .37))
+	Assert that ImageFound(ORNInterval.medium, imageName: "AppAccess/Users_Disabled", SearchRectangle: ORNScreen.scale (0, 0.25, 0.3, .37))
+	CaptureScreen "Scenario08 -  Successfully enabled access for all users and positions"
+	
+	log "Scenario09 - Click Disable all Positions and Users option. Verify user and position submenu is enabled"
+	Click (imageName: "FeatureManager/Button_Disable_For_All", SearchRectangle: ORNScreen.scale (0.7, 0.25, 1, .35), waitFor: ORNINterval.small)
+	Click (imageName: "FeatureManager/Button_Disable", SearchRectangle: ORNScreen.scale (0.7, 0.35, 1, .5), waitFor: ORNINterval.small)
+	Assert that ImageFound(ORNInterval.medium, imageName: "AppAccess/Positions_Enabled", SearchRectangle: ORNScreen.scale (0, 0.25, 0.3, .37))
+	Assert that ImageFound(ORNInterval.medium, imageName: "AppAccess/Users_Enabled", SearchRectangle: ORNScreen.scale (0, 0.25, 0.3, .37))
+	CaptureScreen "Scenario09 -Successfully disabled access for all users and positions"
+	
+	log "Scenario10 – Search for a position from main menu and verify populated position based on searched string" 
+	//Position tab not functioning in deveng domain
+	PositionsMainMenu.clickOnPosition
+	PositionsMainMenu.filterPositions environment.testData.positionName1
+	Assert that ImageFound (ORNInterval.medium, text: environment.testData.positionName1, SearchRectangle:ORNScreen.scale (.01, .2, .4, .7)) 
+	CaptureScreen "Scenario10 - Filtered Positions displayed"
+	log "Audit Event Key ACTION_TYPE=modify, BUNDLE_ID, BUNDLE_NAME, POSITION, POSITION_NAMES is generated.  See Requirement 624741 for event attribute details" 
+	
+	log "Scenario11 - Remove a position and click OK from pop over window and verify position is deleted from the list" //position tab is not functioning in deveng domain
+	PositionsMainMenu.removePositionFromMainTab environment.testData.positionName1
+	Assert that ImageFound (ORNInterval.medium, text: environment.testData.positionDeleted, SearchRectangle:searchArea)
+	CaptureScreen "Scenario11 - Position removed from main menu" 
+	log "Audit Event Key ACTION_TYPE=delete, BUNDLE_ID, BUNDLE_NAME, POSITION, POSITION_NAMES is generated.  See Requirement 625081 for event attribute details" 
+	
+	log "Scenario12 -  Verify realm is selected by default when single realm exisits. If more than one realm exists - no realm selected within main users tab"
+	wait 3
+	UsersMainMenu.clickOnUser
+	Click (waitfor:ORNInterval.medium,Image: "AppAccess/Button_Assign_Win10")
+	if UsersSubMenu.validateRealm then 
+		CaptureScreen "Scenario12 - Realm verification done accordingly within users main tab"
+	end if		
+	log "Scenario13 - Modify and add bundle to a user from main menu, assert that position access updated , and capture screen" 
+	UsersMainMenu.addUserToPosition environment.testData.userName1, environment.testData.bundleName
+	Assert that ImageFound(ORNInterval.medium, text: environment.testData.userUpdated, SearchRectangle: searchArea )and imagefound(text: environment.testData.userName1, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario13 - Bundle added to a user"
+	log "Audit Event Key ACTION_TYPE=modify, BUNDLE_ID, BUNDLE_NAME, USER, ASSIGNED_USER, BUNDLE_NAMES is generated.  See Requirement 624742 for event attribute details"
+	
+	log "Scenario14 - Delete user and click ok from popover and verify user is deleted from the list" 
+	wait 3
+	UsersMainMenu.removeUserFromMainMenu environment.testData.userName1
+	Assert that ImageFound(ORNInterval.medium, text: environment.testData.userRemoved, SearchRectangle: searchArea)
+	CaptureScreen "Scenario14 - User successfully removed" 
+	log "Audit Event Key ACTION_TYPE=delete, BUNDLE_ID, BUNDLE_NAME, USER is generated.  See Requirement 624744 for event attribute details"
+	
+	log "Scenario15 - Delete created bundle for next run"
+	//Re-set Prequisites
+	BundleAdministration.addPositionsToBundle environment.testData.bundleName, environment.testData.positionName1
+	BundleAdministration.deleteBundle environment.testData.bundleName
+	log "Audit Event Key ACTION_TYPE=delete, BUNDLE_ID, BUNDLE_NAME is generated.  See Requirement 598055 for event attribute details"
+	
+	log "Scenario16 - Click Help link and verify App Access Wiki Page is displayed"
+	Click (waitFor:30, text:"Help", SearchRectangle:ORNScreen.scale (.75, .003, 1, .15))
+	Assert that ImageFound(waitFor:30, text: environment.helpPage, SearchRectangle: ORNScreen.scale (0, 0, .35, .25))
+	CaptureScreen "Scenario16 - Help Page displayed"
+	
+	(*log "Scenario17 - Login as a non millennium user and verify position tab is not shown"
+        set appAccessURL1 to environment.endpoint1
+        DSKBrowser.launchChromeIncognitoMaxURL appAccessURL1	AppAccessHome.mockLoginFields "Principal", user.userid1
+	AppAccessHome.mockLoginFields "Realm ID", user.password1
+	Click text:"Log In"
+	Assert that not ImageFound( "AppAccess/MainMenu/Button_MainPositions/Button_MainPositions_Blue_Win10")
+	CaptureScreen "Scenario17 - Positions tab not shown" 
+
+	log "Scenario18 - Click Bundles tab and verify bundles are displayed"
+	Click "AppAccess/MainMenu/Button_MainBundles"
+	set bundleRec to imageRectangle(text: environment.testData.bundleName)+ (0, -20, 0, 20)
+	Assert that ImageFound(ORNInterval.medium, text: environment.testData.bundleName, SearchRectangle: bundleRec)
+	CaptureScreen "Scenario18 - Bundles displayed" 
+        AppAccessHome.logOutFromAppAccess *)
+	
+	ORNEnvironment.cleanup environment		
+Catch exception								
+	BundleAdministration.deleteBundle environment.testData.bundleName
+	ORNEnvironment.handleException environment, exception
+end try

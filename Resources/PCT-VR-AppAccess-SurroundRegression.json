@@ -1,0 +1,64 @@
+{
+	"suts": [{
+		"name": "Windows-VM"
+	}],
+	"dev": {
+		"domain": "deveng",
+		"assertions": {
+			"accessForbidden": "Access Forbidden",
+			"bundleCreated": "Bundle successfully created",
+			"bundleUpdated": "Bundle successfully updated",
+			"realm1": "Engineering",
+			"realm2": "Associates",
+			"positionName1": "AddPriv3",
+			"positionName2": "Automation-EUR4",
+			"positionUpdated": "Position access updated",
+			"userUpdated": "User access updated",
+			"userRemoved": "User successfully removed",
+			"bundleName": "EggPlantBundle",
+			"applicationName": "Camera Capture",
+			"userName": "AB030405",
+			"userName1": "ApplicationAccess_Automation",
+			"helpPage": "Application Access Help",
+			"realm_error": "Please select a realm and try again",
+			"realm_id": "associates.devcerner.com"
+		},
+		"users": [{
+			"userid": "",
+			"password": "",
+			"userid1": "",
+			"password1": ""
+		}],
+		"endpoint": "https://devcernercentral.com/application-access/tenants/OxAC2Z9IxAi5XQoy3ORuV-lTk7VOlWFx",
+		"endpoint1": "https://devcernercentral.com/application-access/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b"
+
+	},
+
+	"staging": {
+		"domain": "stgeng",
+		"assertions": {
+			"accessForbidden": "Access Forbidden",
+			"realm1": "Engineering",
+			"realm2": "Associates",
+			"bundleCreated": "Bundle successfully created",
+			"bundleUpdated": "Bundle successfully updated",
+			"positionName1": "AddPriv5",
+			"positionName2": "Automation-EUR5",
+			"positionUpdated": "Position access updated",
+			"userUpdated": "User access updated",
+			"userRemoved": "User successfully removed",
+			"bundleName": "EggPlantBundle",
+			"applicationName": "cerner camera capture staging",
+			"userName": "AB030405",
+			"helpPage": "Application Access Help"
+		},
+		"users": [{
+			"userid": "",
+			"password": "",
+			"userid1": "",
+			"password1": "mock-idp"
+		}],
+		"endpoint": "https://sandboxcernercentral.com/application-access/tenants/a758f80e-aa74-4118-80aa-98cc75846c76/",
+		"endpoint1": "https://devcernercentral.com/application-access/tenants/8e33ae3d-4872-4d2f-a059-5f2307fcbf3b"
+	}
+}

@@ -1,0 +1,122 @@
+﻿(**
+	PCT-VR-AppAccess-SurroundRegression
+	RQM ID: 108178
+**)
+
+params testArguments
+set defaultEnvironment to "dev"
+set resourceFile to ResourcePath("PCT-VR-AppAccessSurround-Regression.json")
+set environment to ORNEnvironment.prepare(resourceFile, testArguments, defaultEnvironment)
+ORNGlobalSettings.apply
+try
+	set testData to environment.assertions
+	DSKUtilities.dismissRulesOfRoad
+	set appAccessURL to environment.endpoint
+	// Open chrome in incognito and enter harness url
+	DSKBrowser.launchChromeIncognitoMaxURL appAccessURL
+	
+	log "Scenario01 - Multiple Realms are present"
+	set srchArea to (ImageRectangle(text:"Please choose your enterprise:").bottomLeft,RemoteScreenSize())
+	
+	Assert that ImageFound(ORNInterval.medium, text: testData.realm1, SearchRectangle: srchArea) and imagefound(text: testData.realm2, SearchRectangle:srchArea) 
+	set SearchRectangle to ()
+	CaptureScreen "Scenario01 - Realms are present"
+	
+	
+	set user to environment.users
+	set name to testData.realm2
+	
+	AssociateLogin.selectRealm name, user.userid1, user.password1
+	
+	log "Scenario02 - If user is not authorized it gives a 403 Access Forbidden"
+	set searchArea to ORNScreen.scale (0, 0, .25, .7)
+	Assert that ImageFound(ORNInterval.medium, text: testData.accessForbidden, SearchRectangle: searchArea)
+	CaptureScreen "Scenario02 - Access Forbidden for unauthorized user"
+	
+	DSKBrowser.launchChromeIncognitoMaxURL appAccessURL
+	AssociateLogin.selectRealm "Associates", user.userid, user.password
+	
+	// Navigate to bundle administration
+	AppAccessHome.clickOnBundles
+	
+	log "Scenario03 - Create new bundle, assert that bundle successfully created and capture screen and this is a audit scenario"
+	BundleAdministration.createBundle testData.bundleName
+	set searchArea to ORNScreen.scale (0, 0, .25, .7)
+	Assert that ImageFound(ORNInterval.medium, text: testData.bundleCreated, SearchRectangle: searchArea) and imagefound(text: testData.bundleName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario03 - Bundle successfully created"
+	
+	log "Scenario04 – Search for bundle and verify the bundle list populates based on search string and capture screen and this is a audit scenario"
+	BundleAdministration.filterBundles testData.bundleName
+	set bundleRec to imageRectangle(text: testData.bundleName)+ (0, -20, 0, 20)
+	Assert that ImageFound(ORNInterval.medium, text: testData.bundleName, SearchRectangle: bundleRec)
+	CaptureScreen "Scenario04 - Filtered bundle list"
+	
+	log "Scenario05 - Add application to the bundle and assert that bundle successfully updated and capture screen and this is a audit scenario"
+	Applications.addToBundle testData.applicationName
+	Assert that ImageFound(ORNInterval.long, text: testData.bundleUpdated, SearchRectangle: searchArea ) and imagefound(text: testData.applicationName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario05 - Application added to a bundle"
+	
+	log "Scenario06 -  Realm option should be displayed under user submenu for manage bundles"
+	UsersSubMenu.clickOnUsers
+	Assert that ImageFound(ORNInterval.long, text: "Realm", SearchRectangle: searchArea )
+	CaptureScreen "Scenario06 - Realm present under user submenu"
+	
+	log "Scenario07: Create user without selecting Realm option, it should display message - Please select a realm and try again"
+	click text: "Add"
+	Assert that ImageFound(ORNInterval.long, text: testData.realm_error, SearchRectangle: searchArea )
+	CaptureScreen "Scenario07 - Create user without selecting Realm option, it should display message - Please select a realm and try again"
+	
+	log "Scenario08 -  Add user to bundle from submenu and assert that bundle successfully updated , and capture screen and this is a audit scenario"
+	UsersSubMenu.addUserToBundle "AB030405"
+	Assert that ImageFound(ORNInterval.long, text: testData.bundleUpdated, SearchRectangle: searchArea ) and imagefound(text: testData.userName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario08 - User added to a bundle"
+	
+	log "Scenario09 -  Realm has to be selected for user modification under user submenu based on user configuration for tenant"
+	Assert that ImageFound(ORNInterval.long, text: testData.userName, SearchRectangle: searchArea ) and imagefound(text: testData.realm_id, SearchRectangle:searchArea)
+	CaptureScreen "Scenario09 - Realm has been selected"
+	
+	log "Scenario10 -  Remove user to bundle from submenu and assert that bundle successfully updated , and capture screen and this is a audit scenario" 
+	UsersSubMenu.removeUserFromSubMenu testData.userName
+	Assert that ImageFound(ORNInterval.long, text: testData.bundleUpdated, SearchRectangle: searchArea ) and imagefound(text: testData.userName, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario10 - User removed from bundle"
+	
+	log "Scenario11 - User tab for existing users Realm should be displayed in the table for all users"
+	UsersMainMenu.clickOnUser
+	Assert that ImageFound(ORNInterval.long, text: testData.userName) and imagefound(text: testData.realm_id)
+	CaptureScreen "Scenario11 - users Realm should be displayed in the table"
+	
+	log "Scenario12 - Add Realm to user. Verify - User Access updated in main user tab"
+	Click "AppAccess/Button_Assign_Win10"
+	UsersSubMenu.clickOnRealmId
+	Click ImageLocation(text:"username") + (0,35)
+	TypeText "SD026681"
+	Click (text:"Modify User", SearchRectangle: ORNScreen.scale (0, .25, .25, .7))
+	Assert that ImageFound(ORNInterval.long, text: "Assigned Bundles", SearchRectangle:  ORNScreen.scale (0, .25, .25, .7))
+	Click (text:"Modify", SearchRectangle: ORNScreen.scale (0, .25, .25, .7))
+	PositionsMainMenu.selectBundleToAdd testData.bundleName
+	Click (text:"Save", SearchRectangle: ORNScreen.scale (0, .25, .25, .7))
+	Assert that ImageFound(ORNInterval.long, text: testData.userName, SearchRectangle: searchArea ) and imagefound(text: testData.realm_id, SearchRectangle:searchArea)
+	Assert that ImageFound(ORNInterval.long, text: testData.userUpdated, SearchRectangle: searchArea ) 
+	CaptureScreen "Scenario12 - users Realm should be displayed in the table"
+	
+	log "Scenario13 - Modify and add bundle to a user from main menu, assert that position access updated , and capture screen and this is a audit scenario" 
+	UsersMainMenu.addUserToPosition testData.userName1, testData.bundleName
+	Assert that ImageFound(ORNInterval.medium, text: testData.userUpdated, SearchRectangle: searchArea )and imagefound(text: testData.userName1, SearchRectangle:searchArea) 
+	CaptureScreen "Scenario13 - Bundle added to a user"
+	
+	log "Scenario14 - Delete user and click ok from popover and verify user is deleted from the list and this is a audit scenario"
+	UsersMainMenu.removeUserFromMainMenu testData.userName1
+	Assert that ImageFound(ORNInterval.medium, text: testData.userRemoved, SearchRectangle: searchArea)
+	CaptureScreen "Scenario14 - User successfully removed"
+	
+	log "Scenario15 - Reassign user and delete created bundle"
+	log searchArea
+	UsersMainMenu.reassignUser testData.userName1
+	BundleAdministration.deleteBundle testData.bundleName
+	AppAccessHome.logOutFromAppAccess
+	
+	ORNEnvironment.cleanup environment
+Catch exception
+	BundleAdministration.deleteBundle testData.bundleName
+	ORNEnvironment.handleException environment, exception
+end try
